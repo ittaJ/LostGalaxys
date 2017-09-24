@@ -5,6 +5,7 @@ import org.bukkit.Bukkit
 
 class Entity(type:EntityType) {
 
+    var types:EntityType = type
     var level: Int = 0
     var expToDrop: Double = 0.0
     var id: Int = 0
@@ -19,35 +20,35 @@ class Entity(type:EntityType) {
 
     }
 
-    fun onCreate() {
-        Bukkit.getPluginManager().callEvent(MEntityCreateEvent(this))
-    }
+        fun onCreate() {
+            Bukkit.getPluginManager().callEvent(MEntityCreateEvent(this))
+        }
 
-    fun onDeath(killer: User) {
-        Bukkit.getPluginManager().callEvent(MEntityDeathEvent(this, killer))
-    }
-
-
-    init {
-        this.id = EntitiesUtils.getEntities().size + 1
-        EntitiesUtils.addEntity(this)
-        onCreate()
-    }
-
-    companion object {
-
-        fun get(id: Int): Entity {
-
-            for (e in EntitiesUtils.getEntities()) {
-
-                if (e.id == id) return e
-
-            }
-
-            return Entity(EntityType.RANDOM)
-
+        fun onDeath(killer: User) {
+            Bukkit.getPluginManager().callEvent(MEntityDeathEvent(this, killer))
         }
 
 
-    }
+        init {
+            this.id = EntitiesUtils.getEntities().size + 1
+            EntitiesUtils.addEntity(this)
+            onCreate()
+        }
+
+        companion object {
+
+            fun get(id: Int): Entity {
+
+                for (e in EntitiesUtils.getEntities()) {
+
+                    if (e.id == id) return e
+
+                }
+
+                return Entity(EntityType.RANDOM)
+
+            }
+
+
+        }
 }

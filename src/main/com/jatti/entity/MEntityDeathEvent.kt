@@ -7,19 +7,19 @@ import org.bukkit.event.HandlerList
 class MEntityDeathEvent(entity:Entity, killer:User):Event(false){
 
    private val handlery:HandlerList = HandlerList()
-   private var ent:Entity? = null
-   private var kill:User? = null
+   private var ent:Entity = entity
+   private var kill:User = killer
 
     init{
         this.ent = entity
         this.kill = killer
     }
 
-    fun getEntity():Entity?{
+    fun getEntity():Entity{
         return ent
     }
 
-    fun getKiller():User?{
+    fun getKiller():User{
         return kill
     }
 

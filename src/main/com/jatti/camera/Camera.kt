@@ -14,7 +14,6 @@ class Camera(owner: User) : Machine(owner, CameraUtils.getCamerasForUser(owner).
 
     init {
 
-
         CameraUtils.addCamera(this)
 
     }

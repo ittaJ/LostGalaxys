@@ -2,21 +2,36 @@ package com.jatti.planet;
 
 import com.jatti.atmosphere.Atmosphere;
 import com.jatti.atmosphere.AtmosphereChangeEvent;
+import com.jatti.entity.Entity;
 import com.jatti.user.User;
 import org.bukkit.Bukkit;
+
+import java.util.List;
 
 public class Planet {
 
 	private String name;
 	private Atmosphere atmosphere;
 	private User owner;
+	private List<Entity> entities;
 	//TODO make it working
 	
 	public Planet(String name) {
 		this.name = name;
+		PlanetUtils.addPlanet(this);
 	}
 
+	public static Planet get(String name){
 
+	    for(Planet p : PlanetUtils.getPlanets()){
+
+	        if(p.getName().equals(name)) return p;
+
+        }
+
+        return null;
+
+    }
 	
 	public String getName() {
 		return name;
@@ -45,5 +60,12 @@ public class Planet {
 	public void changeAtmosphere(Atmosphere newAtmosphere) {
 		Bukkit.getPluginManager().callEvent(new AtmosphereChangeEvent(this, atmosphere, newAtmosphere));
 	}
-	
+
+    public List<Entity> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<Entity> entities) {
+        this.entities = entities;
+    }
 }

@@ -35,7 +35,7 @@ public class CameraTeleport implements Listener{
         evt.getUser().getCraftPlayer().getHandle().playerConnection.sendPacket(pc);
 		
         Bukkit.getScheduler().runTaskLater(LostGalaxy.getInst(), 
-        		new Runnable(){
+				new Runnable(){
         	public void run(){
         		PacketPlayOutCamera pcc = new PacketPlayOutCamera(evt.getUser().getCraftPlayer().getHandle());
         		evt.getUser().getCraftPlayer().getHandle().playerConnection.sendPacket(pcc);

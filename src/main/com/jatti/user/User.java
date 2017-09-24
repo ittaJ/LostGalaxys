@@ -1,5 +1,6 @@
 package com.jatti.user;
 
+import com.jatti.achievements.Archievement;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
@@ -8,6 +9,8 @@ import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import com.jatti.camera.Camera;
+
+import java.util.List;
 
 public class User {
 
@@ -19,6 +22,7 @@ public class User {
     private boolean isChangingName;
     private int level;
     private double exp;
+    private List<Archievement> archievements;
 
     public User(String name){
 
@@ -126,5 +130,13 @@ public class User {
 
     public void checkIfNextLevel(){
 
+    }
+
+    public List<Archievement> getArchievements() {
+        return archievements;
+    }
+
+    public void setArchievements(List<Archievement> archievements) {
+        this.archievements = archievements;
     }
 }

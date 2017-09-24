@@ -8,7 +8,7 @@ class MEntityCreateEvent(entity:Entity): Event(false){
 
     //TODO Check if its working
     private val handlery: HandlerList = HandlerList()
-    private var ent:Entity? = null
+    private var ent:Entity = entity
 
     init{
         ent = entity
@@ -20,9 +20,7 @@ class MEntityCreateEvent(entity:Entity): Event(false){
         return handlery
     }
 
-
-
-    fun getEntity():Entity?{
+    fun getEntity():Entity{
         return ent
     }
 }

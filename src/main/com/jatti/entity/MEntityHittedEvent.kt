@@ -7,19 +7,19 @@ import org.bukkit.event.HandlerList
 class MEntityHittedEvent(target:Entity, badguy: User): Event(false){
 
     private val hand:HandlerList = HandlerList()
-    private var targ:Entity? = null
-    private var bad:User? = null
+    private var targ:Entity = target
+    private var bad:User = badguy
 
     init{
         this.targ = target
         this.bad = badguy
     }
 
-    fun getTarget():Entity?{
+    fun getTarget():Entity{
         return targ
     }
 
-    fun getHitting():User?{
+    fun getHitting():User{
         return bad
     }
 
