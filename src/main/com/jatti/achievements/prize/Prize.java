@@ -16,7 +16,7 @@ public class Prize {
 
     public Prize(int value){
 
-        //TODO make it
+        //TODO make it working
 
     }
 
