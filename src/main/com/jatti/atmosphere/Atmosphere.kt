@@ -1,6 +1,6 @@
 package com.jatti.atmosphere
 
-class Atmosphere(name: String){
+class Atmosphere(var name: String){
 
     var gravity:Int = 0
     var temperature:Int = 0
@@ -9,11 +9,9 @@ class Atmosphere(name: String){
     var isLife:Boolean = false
     var isChangable:Boolean = false
     var changeTime:Int = 0
-    var name:String = ""
 
     init{
 
-        this.name = name
         this.isLife = true
         this.isChangable = false
         this.changeTime = 0

@@ -3,9 +3,8 @@ package com.jatti.entity
 import com.jatti.user.User
 import org.bukkit.Bukkit
 
-class Entity(type:EntityType) {
+class Entity(var type:EntityType) {
 
-    var types:EntityType = type
     var level: Int = 0
     var expToDrop: Double = 0.0
     var id: Int = 0
