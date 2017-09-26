@@ -4,7 +4,7 @@ import com.jatti.user.User
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 
-class MEntityDeathEvent(var entity:Entity, var killer:User):Event(false){
+class MEntityDeathEvent(var entity:Entity, var killer: User):Event(false){
 
    private val handlery:HandlerList = HandlerList()
 

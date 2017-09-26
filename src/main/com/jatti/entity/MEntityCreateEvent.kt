@@ -6,7 +6,6 @@ import org.bukkit.event.HandlerList
 
 class MEntityCreateEvent(var entity: Entity): Event(false){
 
-    //TODO Check if its working
     private val handlery: HandlerList = HandlerList()
 
 

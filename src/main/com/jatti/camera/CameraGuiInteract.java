@@ -1,8 +1,8 @@
 package com.jatti.camera;
 
 import com.jatti.computer.Computer;
-import com.jatti.user.User;
 
+import com.jatti.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

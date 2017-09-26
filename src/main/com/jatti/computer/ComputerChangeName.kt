@@ -11,7 +11,7 @@ class ComputerChangeName:Listener{
     @EventHandler
     fun onChat(evt:AsyncPlayerChatEvent){
 
-        val u:User = User.get(evt.player.name)
+        val u: User = User.get(evt.player.name)
 
         if(u.isChangingName){
 

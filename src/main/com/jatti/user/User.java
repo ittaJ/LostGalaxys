@@ -23,6 +23,7 @@ public class User {
     private int level;
     private double exp;
     private List<Archievement> archievements;
+    private boolean isOnPlanet;
 
     public User(String name){
 
@@ -130,6 +131,8 @@ public class User {
 
     public void checkIfNextLevel(){
 
+        //TODO Make levels
+
     }
 
     public List<Archievement> getArchievements() {
@@ -138,5 +141,13 @@ public class User {
 
     public void setArchievements(List<Archievement> archievements) {
         this.archievements = archievements;
+    }
+
+    public boolean isOnPlanet() {
+        return isOnPlanet;
+    }
+
+    public void setOnPlanet(boolean onPlanet) {
+        isOnPlanet = onPlanet;
     }
 }

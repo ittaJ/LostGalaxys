@@ -68,4 +68,5 @@ public class Prize {
     public void setForLevel(boolean forLevel) {
         isForLevel = forLevel;
     }
+
 }

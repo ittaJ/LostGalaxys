@@ -9,7 +9,7 @@ class Entity(var type:EntityType) {
     var expToDrop: Double = 0.0
     var id: Int = 0
 
-    fun onHit(hitted: Boolean, g:User){
+    fun onHit(hitted: Boolean, g: User){
 
         return if (hitted){
             Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, g))
