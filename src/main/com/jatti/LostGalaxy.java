@@ -7,6 +7,7 @@ import com.jatti.camera.CameraTeleport;
 import com.jatti.computer.ComputerChangeName;
 import com.jatti.computer.ComputerGuiInteract;
 import com.jatti.computer.ComputerInteract;
+import com.jatti.user.Join;
 import com.jatti.user.LevelUp;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,6 +29,7 @@ public class LostGalaxy extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ComputerChangeName(), this);
         Bukkit.getPluginManager().registerEvents(new AtmosphereChange(), this);
         Bukkit.getPluginManager().registerEvents(new LevelUp(), this);
+        Bukkit.getPluginManager().registerEvents(new Join(), this);
     }
 
 

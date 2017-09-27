@@ -16,10 +16,22 @@ public class Prize {
 
     public Prize(int value){
 
-        //TODO make it working
+        this.value = value;
+        PrizeUtils.addPrize(this);
 
     }
 
+    public static Prize get(int value){
+
+        for(Prize p : PrizeUtils.getPrizes()){
+
+            if(p.getValue() == value) return p;
+
+        }
+
+        return new Prize(value);
+
+    }
 
     public List<ItemStack> getItems() {
         return items;
@@ -69,4 +81,7 @@ public class Prize {
         isForLevel = forLevel;
     }
 
+    public int getValue() { return value; }
+
+    public void setValue(int value) { this.value = value; }
 }

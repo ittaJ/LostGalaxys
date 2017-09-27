@@ -14,7 +14,7 @@ class Entity(var type:EntityType) {
         return if (hitted){
             Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, g))
         }else{
-            TODO("Make another event if entity hit user")
+            Bukkit.getPluginManager().callEvent(MEntityHitEvent(g, this))
         }
 
     }

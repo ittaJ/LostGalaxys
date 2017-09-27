@@ -1,6 +1,7 @@
 
 package com.jatti.machine;
 
+import com.jatti.energy.EnergyAddon;
 import com.jatti.user.User;
 
 public class Machine {
@@ -65,7 +66,7 @@ public class Machine {
 	}
 	
 	public void setEnergy(double energy) {
-		
+
 		this.energy = energy;
 		
 		if(this.energy < 0) this.energy = 0;

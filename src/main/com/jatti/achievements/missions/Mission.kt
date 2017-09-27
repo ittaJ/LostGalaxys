@@ -8,6 +8,7 @@ interface Mission {
 
     var value:Int
     var name:String
+    var isChallenge:Boolean
     var prize: Prize
     fun onGet()
     fun onComplete()

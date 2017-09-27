@@ -76,9 +76,6 @@ public class User {
     	
     }
 
-    public void sendOneColorMessage(ChatColor color, String message){
-        getPlayer().sendMessage(color + message);
-    }
 
     public void sendActionBar(int fadein, int stay, int fadeout, String message){
 
@@ -132,6 +129,17 @@ public class User {
     public void checkIfNextLevel(){
 
         //TODO Make levels
+        /*
+
+        Lvl. 0 - 0
+        Lvl. 1-7 - 2*(level+4)
+        Lvl 8-17 - 2.5*(level+5)
+        Lvl 18-36 - 3*level+20
+        Lvl 37-40 - 5*level+3
+        Lvl 40+ - 2*(6*level+level)
+
+
+        */
 
     }
 
@@ -149,5 +157,10 @@ public class User {
 
     public void setOnPlanet(boolean onPlanet) {
         isOnPlanet = onPlanet;
+    }
+
+    public void showTutorial(){
+        //TODO Make tutorial
+        Bukkit.getPluginManager().callEvent(new TutorialEvent(this));
     }
 }

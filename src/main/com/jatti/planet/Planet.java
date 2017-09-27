@@ -18,6 +18,7 @@ public class Planet {
 	
 	public Planet(String name) {
 		this.name = name;
+		shuffleEntities();
 		PlanetUtils.addPlanet(this);
 	}
 
@@ -67,5 +68,9 @@ public class Planet {
 
     public void setEntities(List<Entity> entities) {
         this.entities = entities;
+    }
+
+    public void shuffleEntities(){
+
     }
 }

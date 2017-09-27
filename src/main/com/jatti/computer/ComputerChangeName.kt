@@ -18,7 +18,7 @@ class ComputerChangeName:Listener{
             Computer.get(u).name = evt.message
 
             u.isChangingName = false
-            u.sendOneColorMessage(ChatColor.DARK_GREEN, "Zmieniono nazwe komputera!")
+            u.sendMessage(""+ChatColor.DARK_GREEN+"Zmieniono nazwe komputera!")
 
         }
 

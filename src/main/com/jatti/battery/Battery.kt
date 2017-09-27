@@ -1,4 +1,4 @@
-package com.jatti.battery
+package com.jatti.battery;
 
 import com.jatti.energy.EnergyAddon
 import com.jatti.machine.Machine
@@ -6,6 +6,7 @@ import com.jatti.user.User
 
 class Battery(owner: User):Machine(owner, BatteryUtils.getBatteriesForUser(owner).size + 1){
 
+    //TODO add machines list powered by this battery
     var maxEnergy:Int = 100
     var energyUsage:Int = 0
 
