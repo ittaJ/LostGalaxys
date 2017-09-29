@@ -3,6 +3,7 @@ package com.jatti.machine;
 
 import com.jatti.energy.EnergyAddon;
 import com.jatti.user.User;
+import org.bukkit.Location;
 
 public class Machine {
 
@@ -11,8 +12,9 @@ public class Machine {
 	private String name;
 	private int value;
 	private double energy;
-	
-	
+	private Location whereIs;
+
+
 	public Machine(User owner, int value) {
 		this.owner = owner;
 		this.value = value;
@@ -72,4 +74,12 @@ public class Machine {
 		if(this.energy < 0) this.energy = 0;
 		
 	}
+
+    public Location getWhereIs() {
+        return whereIs;
+    }
+
+    public void setWhereIs(Location whereIs) {
+        this.whereIs = whereIs;
+    }
 }

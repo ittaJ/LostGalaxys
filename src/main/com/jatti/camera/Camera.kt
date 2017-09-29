@@ -23,11 +23,9 @@ class Camera(owner: User) : Machine(owner, CameraUtils.getCamerasForUser(owner).
 
         operator fun get(user: User, value: Int): Camera {
 
-            for (c in CameraUtils.getCamerasForUser(user)) {
-
-                if (c.value == value) return c
-
-            }
+            CameraUtils.getCamerasForUser(user)
+                    .filter { it.value == value }
+                    .forEach { return it }
 
             return Camera(user)
 

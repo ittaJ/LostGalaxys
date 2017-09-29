@@ -1,10 +1,12 @@
 package com.jatti;
 
+import com.jatti.battery.Battery;
 import com.jatti.camera.Camera;
 import com.jatti.computer.Computer;
 import com.jatti.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -92,10 +94,11 @@ public class Gui {
 
     }
 
-    public static void openEnergyGui(User user){
+    public static void openEnergyGui(User user, Location location){
 
-        //TODO make energy gui
+        Battery b = Battery.Companion.get(user,location);
 
+        Bukkit.createInventory(null, 0, ChatColor.DARK_GREEN + "Energia w tej baterii to: " + ChatColor.GOLD + b.getEnergy());
     }
 
 }

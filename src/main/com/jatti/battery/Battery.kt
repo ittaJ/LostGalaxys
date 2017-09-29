@@ -3,6 +3,8 @@ package com.jatti.battery;
 import com.jatti.energy.EnergyAddon
 import com.jatti.machine.Machine
 import com.jatti.user.User
+import org.bukkit.Location
+
 
 class Battery(owner: User):Machine(owner, BatteryUtils.getBatteriesForUser(owner).size + 1){
 
@@ -18,18 +20,13 @@ class Battery(owner: User):Machine(owner, BatteryUtils.getBatteriesForUser(owner
 
     companion object {
 
-        fun get(owner:User, value:Int):Battery{
+        fun get(owner:User, whereIs:Location):Battery{
 
-            for(b in BatteryUtils.getBatteriesForUser(owner)){
-
-                if(b.value == value) return b
-
-            }
+            BatteryUtils.getBatteriesForUser(owner)
+                    .filter { it.whereIs == whereIs }
+                    .forEach { return it }
             return Battery(owner)
         }
-
-
-
     }
 
     fun addMaxEnergy(energyToAdd:EnergyAddon){

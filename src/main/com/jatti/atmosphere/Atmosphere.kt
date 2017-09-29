@@ -23,11 +23,9 @@ class Atmosphere(var name: String){
 
         operator fun get(name:String):Atmosphere{
 
-            for(a in AtmosphereUtils.getAtmospheres()){
-
-                if(a.name == name) return a
-
-            }
+            AtmosphereUtils.getAtmospheres()
+                    .filter { it.name == name }
+                    .forEach { return it }
 
             return Atmosphere(name)
 

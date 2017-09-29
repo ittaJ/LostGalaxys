@@ -38,11 +38,9 @@ class Entity(var type:EntityType) {
 
             fun get(id: Int): Entity {
 
-                for (e in EntitiesUtils.getEntities()) {
-
-                    if (e.id == id) return e
-
-                }
+                EntitiesUtils.getEntities()
+                        .filter { it.id == id }
+                        .forEach { return it }
 
                 return Entity(EntityType.RANDOM)
 

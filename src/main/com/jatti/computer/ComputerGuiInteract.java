@@ -51,7 +51,7 @@ public class ComputerGuiInteract implements Listener{
                     if(evt.getCurrentItem().getItemMeta().getDisplayName().contains("Dodaj energie")){
 
                         evt.getWhoClicked().closeInventory();
-                        Gui.openEnergyGui(u);
+                        //Gui.openEnergyGui(u);
 
                 }
 
