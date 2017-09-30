@@ -1,8 +1,8 @@
 
 package com.jatti.machine;
 
-import com.jatti.energy.EnergyAddon;
 import com.jatti.user.User;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
 public class Machine {
@@ -81,5 +81,10 @@ public class Machine {
 
     public void setWhereIs(Location whereIs) {
         this.whereIs = whereIs;
+    }
+
+    public void removeEnergy(User user, double energy){
+	    setEnergy(this.energy-energy);
+	    user.sendActionBar(3,5,3, ChatColor.DARK_RED + "-" + energy + " energii");
     }
 }

@@ -23,8 +23,7 @@ public class CameraTeleport implements Listener{
 		evt.getUser().getPlayer().closeInventory();
 		
 		evt.getUser().sendMessage(ChatColor.DARK_GREEN + "Przeteleportowano do: " + ChatColor.GOLD + evt.getCamera().getValue());
-		evt.getComputer().setEnergy(evt.getComputer().getEnergy()-2);
-        evt.getUser().sendActionBar(3, 5, 3, ChatColor.DARK_RED + "-2 energii");
+		evt.getComputer().removeEnergy(evt.getUser(), 2);
         
         
         evt.getUser().getPlayer().setGameMode(GameMode.SURVIVAL);

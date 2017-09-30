@@ -2,12 +2,16 @@ package com.jatti.entity
 
 import com.jatti.user.User
 import org.bukkit.Bukkit
+import org.bukkit.Location
+import java.util.*
 
 class Entity(var type:EntityType) {
 
+    //TODO add pets
     var level: Int = 0
     var expToDrop: Double = 0.0
     var id: Int = 0
+    var life:Int = 0
 
     fun onHit(hitted: Boolean, g: User){
 
@@ -19,19 +23,26 @@ class Entity(var type:EntityType) {
 
     }
 
-        fun onCreate() {
-            Bukkit.getPluginManager().callEvent(MEntityCreateEvent(this))
+        fun onCreate(location:Location) {
+            Bukkit.getPluginManager().callEvent(MEntityCreateEvent(this, location))
         }
 
         fun onDeath(killer: User) {
             Bukkit.getPluginManager().callEvent(MEntityDeathEvent(this, killer))
         }
 
+        fun shuffle(){
+
+            type = EntitiesUtils.getRandType()
+            //TODO add better leveling system
+            level = Random().nextInt(10)
+            expToDrop = Random().nextDouble()+level
+            life = level*5
+
+        }
 
         init {
-            this.id = EntitiesUtils.getEntities().size + 1
             EntitiesUtils.addEntity(this)
-            onCreate()
         }
 
         companion object {

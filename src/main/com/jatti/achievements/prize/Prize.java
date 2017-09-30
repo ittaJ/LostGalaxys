@@ -9,7 +9,6 @@ public class Prize {
     private int value;
     private boolean isForLevel;
     private boolean isForArchievement;
-    private boolean isForChallange;
     private double xp;
     private int gold;
     private List<ItemStack> items;
@@ -55,14 +54,6 @@ public class Prize {
 
     public void setXp(double xp) {
         this.xp = xp;
-    }
-
-    public boolean isForChallange() {
-        return isForChallange;
-    }
-
-    public void setForChallange(boolean forChallange) {
-        isForChallange = forChallange;
     }
 
     public boolean isForArchievement() {

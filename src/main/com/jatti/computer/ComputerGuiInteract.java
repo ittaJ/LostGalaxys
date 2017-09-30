@@ -32,8 +32,7 @@ public class ComputerGuiInteract implements Listener{
                     }
 
                     if(evt.getCurrentItem().getItemMeta().getDisplayName().contains("Zmien Nazwe")){
-                        c.setEnergy(c.getEnergy()-1);
-                        u.sendActionBar(3, 5, 3, ChatColor.DARK_RED + "-1 energii");
+                        c.removeEnergy(u, 1);
                         evt.getWhoClicked().closeInventory();
                         evt.getWhoClicked().sendMessage(ChatColor.DARK_GREEN + "Zmien nazwe komputera (napisz na chacie)");
                         u.setChangingName(true);
@@ -41,8 +40,7 @@ public class ComputerGuiInteract implements Listener{
                 }
 
                     if(evt.getCurrentItem().getItemMeta().getDisplayName().contains("Kamery")){
-                        c.setEnergy(c.getEnergy()-2);
-                        u.sendActionBar(3, 5, 3, ChatColor.DARK_RED + "-2 energii");
+                        c.removeEnergy(u, 2);
                         evt.getWhoClicked().closeInventory();
                         Gui.openCamerasGui(u);
 

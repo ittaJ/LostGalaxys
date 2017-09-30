@@ -4,7 +4,6 @@ import com.jatti.achievements.Archievement;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public class User {
 
     private String name;
-    private int money;
+    private int gold;
     private Camera clicked;
     private boolean isClicked;
     private boolean hasComputer;
@@ -48,11 +47,11 @@ public class User {
 
     public void setIsClicked(boolean isClicked){ this.isClicked = isClicked; }
 
-    public int getMoney() {
-        return money;
+    public int getGold() {
+        return gold;
     }
 
-    public void setMoney(int money) { this.money = money; }
+    public void setGold(int gold) { this.gold = gold; }
 
     public String getName() {
         return name;
@@ -128,19 +127,12 @@ public class User {
 
     public void checkIfNextLevel(){
 
-        //TODO Make levels
-        /*
-
-        Lvl. 0 - 0
-        Lvl. 1-7 - 2*(level+4)
-        Lvl 8-17 - 2.5*(level+5)
-        Lvl 18-36 - 3*level+20
-        Lvl 37-40 - 5*level+3
-        Lvl 40+ - 2*(6*level+level)
-
-
-        */
-
+        if(exp == 0) level = 0;
+        if(exp == 2*((level+1)+4) && level < 8) level+=1;
+        if(exp == 2.5*((level+1)+5) && level < 18 && level > 8) level+=1;
+        if(exp == 3*(level+1)+20 && level < 37 && level > 18) level+=1;
+        if(exp == 5*(level+1)+3 && level < 41 && level > 37) level+=1;
+        if(exp == 2*(6*((level+1)*2)) && level > 40) level+=1;
     }
 
     public List<Archievement> getArchievements() {
