@@ -1,6 +1,8 @@
 package com.jatti.user;
 
 import com.jatti.achievements.Archievement;
+import com.jatti.achievements.missions.Mission;
+import com.jatti.achievements.missions.TestMission;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
@@ -72,7 +74,6 @@ public class User {
     public void sendMessage(String message){
     	
     	getPlayer().sendMessage(message);
-    	
     }
 
 
@@ -128,11 +129,26 @@ public class User {
     public void checkIfNextLevel(){
 
         if(exp == 0) level = 0;
-        if(exp == 2*((level+1)+4) && level < 8) level+=1;
-        if(exp == 2.5*((level+1)+5) && level < 18 && level > 8) level+=1;
-        if(exp == 3*(level+1)+20 && level < 37 && level > 18) level+=1;
-        if(exp == 5*(level+1)+3 && level < 41 && level > 37) level+=1;
-        if(exp == 2*(6*((level+1)*2)) && level > 40) level+=1;
+        if(exp == 2*((level+1)+4) && level < 8){
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
+            level+=1;
+        }
+        if(exp == 2.5*((level+1)+5) && level < 18 && level > 8){
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
+            level+=1;
+        }
+        if(exp == 3*(level+1)+20 && level < 37 && level > 18){
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
+            level+=1;
+        }
+        if(exp == 5*(level+1)+3 && level < 41 && level > 37){
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
+            level+=1;
+        }
+        if(exp == 2*(6*((level+1)*2)) && level > 40){
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
+            level+=1;
+        }
     }
 
     public List<Archievement> getArchievements() {

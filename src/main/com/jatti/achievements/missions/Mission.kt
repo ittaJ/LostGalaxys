@@ -1,16 +1,12 @@
 package com.jatti.achievements.missions
 
-import com.jatti.achievements.prize.Prize
+import com.jatti.user.User
 
 interface Mission {
 
-    //TODO Make it working
-
-    var value:Int
-    var name:String
-    var isChallenge:Boolean
-    var prize: Prize
-    fun onGet()
-    fun onComplete()
+    val value:Int
+    val name:String
+    fun onGet(user:User)
+    fun onComplete(user:User)
 
 }

@@ -2,13 +2,12 @@ package com.jatti.achievements.prize;
 
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Prize {
 
     private int value;
-    private boolean isForLevel;
-    private boolean isForArchievement;
     private double xp;
     private int gold;
     private List<ItemStack> items;
@@ -33,6 +32,7 @@ public class Prize {
     }
 
     public List<ItemStack> getItems() {
+        if(items == null) items = new ArrayList<ItemStack>();
         return items;
     }
 
@@ -52,25 +52,7 @@ public class Prize {
         return xp;
     }
 
-    public void setXp(double xp) {
-        this.xp = xp;
-    }
-
-    public boolean isForArchievement() {
-        return isForArchievement;
-    }
-
-    public void setForArchievement(boolean forArchievement) {
-        isForArchievement = forArchievement;
-    }
-
-    public boolean isForLevel() {
-        return isForLevel;
-    }
-
-    public void setForLevel(boolean forLevel) {
-        isForLevel = forLevel;
-    }
+    public void setXp(double xp) { this.xp = xp; }
 
     public int getValue() { return value; }
 
