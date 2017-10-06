@@ -16,7 +16,7 @@ class Join:Listener{
             u.showTutorial()
             u.level = 0
             u.exp = 0.0
-            u.money = 500
+            u.gold = 500
 
         }
 

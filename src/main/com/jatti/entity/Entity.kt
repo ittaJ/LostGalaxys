@@ -58,5 +58,5 @@ class Entity(var type:EntityType) {
             }
 
 
-        }
+}
 }

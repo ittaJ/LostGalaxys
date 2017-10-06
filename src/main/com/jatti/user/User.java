@@ -1,8 +1,6 @@
 package com.jatti.user;
 
-import com.jatti.achievements.Archievement;
-import com.jatti.achievements.missions.Mission;
-import com.jatti.achievements.missions.TestMission;
+import com.jatti.achievements.Achievement;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
@@ -23,7 +21,7 @@ public class User {
     private boolean isChangingName;
     private int level;
     private double exp;
-    private List<Archievement> archievements;
+    private List<Achievement> achievements;
     private boolean isOnPlanet;
 
     public User(String name){
@@ -151,12 +149,12 @@ public class User {
         }
     }
 
-    public List<Archievement> getArchievements() {
-        return archievements;
+    public List<Achievement> getAchievements() {
+        return achievements;
     }
 
-    public void setArchievements(List<Archievement> archievements) {
-        this.archievements = archievements;
+    public void setArchievements(List<Achievement> achievements) {
+        this.achievements = achievements;
     }
 
     public boolean isOnPlanet() {
