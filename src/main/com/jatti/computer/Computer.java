@@ -1,4 +1,5 @@
 package com.jatti.computer;
+
 import com.jatti.camera.Camera;
 import com.jatti.machine.Machine;
 import com.jatti.user.User;
@@ -11,19 +12,19 @@ public class Computer extends Machine {
 
     private Location where;
     private List<Camera> cameras;
-    
-    public Computer(User owner){
+
+    public Computer(User owner) {
 
         super(owner, "Komputer");
 
         ComputerUtils.addComputer(this);
     }
 
-    public static Computer getFromLocation(Location where){
+    public static Computer getFromLocation(Location where) {
 
-        for(Computer c : ComputerUtils.getComputers()){
+        for (Computer c : ComputerUtils.getComputers()) {
 
-            if(c.getWhere().equals(where)) return c;
+            if (c.getWhere().equals(where)) return c;
 
         }
 
@@ -31,11 +32,11 @@ public class Computer extends Machine {
 
     }
 
-    public static Computer get(User owner){
+    public static Computer get(User owner) {
 
-        for(Computer c : ComputerUtils.getComputers()){
+        for (Computer c : ComputerUtils.getComputers()) {
 
-           if(c.getOwner().equals(owner)) return c;
+            if (c.getOwner().equals(owner)) return c;
 
         }
 
@@ -52,7 +53,7 @@ public class Computer extends Machine {
     }
 
     public List<Camera> getCameras() {
-        if(cameras == null) cameras = new ArrayList<Camera>();
+        if (cameras == null) cameras = new ArrayList<Camera>();
         return cameras;
     }
 

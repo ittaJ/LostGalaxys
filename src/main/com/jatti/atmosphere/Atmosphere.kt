@@ -1,16 +1,16 @@
 package com.jatti.atmosphere
 
-class Atmosphere(var name: String){
+class Atmosphere(var name: String) {
 
-    var gravity:Int = 0
-    var temperature:Int = 0
-    var lowTemperature:Int = 0
-    var maxTemperature:Int = 0
-    var isLife:Boolean = false
-    var isChangable:Boolean = false
-    var changeTime:Int = 0
+    var gravity: Int = 0
+    var temperature: Int = 0
+    var lowTemperature: Int = 0
+    var maxTemperature: Int = 0
+    var isLife: Boolean = false
+    var isChangable: Boolean = false
+    var changeTime: Int = 0
 
-    init{
+    init {
 
         this.isLife = true
         this.isChangable = false
@@ -21,7 +21,7 @@ class Atmosphere(var name: String){
 
     companion object {
 
-        operator fun get(name:String):Atmosphere{
+        operator fun get(name: String): Atmosphere {
 
             AtmosphereUtils.getAtmospheres()
                     .filter { it.name == name }

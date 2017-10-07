@@ -11,33 +11,32 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class ComputerInteract implements Listener{
+public class ComputerInteract implements Listener {
 
     @SuppressWarnings("deprecation")
-	@EventHandler
-    public void onPlace(BlockPlaceEvent evt){
+    @EventHandler
+    public void onPlace(BlockPlaceEvent evt) {
 
-        if(evt.getBlockPlaced().getType().equals(Material.SKULL)){
+        if (evt.getBlockPlaced().getType().equals(Material.SKULL)) {
             Skull s = (Skull) evt.getBlockPlaced().getState();
 
-                if (s.getOwner().equals("Servers")) {
-                    User u = User.get(evt.getPlayer().getName());
-                    if (!u.isHasComputer()) {
+            if (s.getOwner().equals("Servers")) {
+                User u = User.get(evt.getPlayer().getName());
+                if (!u.isHasComputer()) {
 
-                        Computer c = Computer.get(u);
-                        c.setWhere(evt.getBlockPlaced().getLocation());
-                        c.setEnergy(60);
-                        c.setName("Komputer");
-                        u.setHasComputer(true);
+                    Computer c = Computer.get(u);
+                    c.setWhere(evt.getBlockPlaced().getLocation());
+                    c.setEnergy(60);
+                    c.setName("Komputer");
+                    u.setHasComputer(true);
 
 
+                } else {
 
-                    } else {
+                    evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz miec dwoch komputerow!");
+                    evt.setCancelled(true);
 
-                        evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz miec dwoch komputerow!");
-                        evt.setCancelled(true);
-
-                    }
+                }
 
             }
 
@@ -46,35 +45,35 @@ public class ComputerInteract implements Listener{
     }
 
     @SuppressWarnings("deprecation")
-	@EventHandler
-    public void onInteract(PlayerInteractEvent evt){
+    @EventHandler
+    public void onInteract(PlayerInteractEvent evt) {
 
-        if(evt.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+        if (evt.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             User u = User.get(evt.getPlayer().getName());
 
-            if(evt.getClickedBlock().getType().equals(Material.SKULL)) {
+            if (evt.getClickedBlock().getType().equals(Material.SKULL)) {
 
                 Skull s = (Skull) evt.getClickedBlock().getState();
 
 
-                if(s.getOwner().equals("Servers")) {
+                if (s.getOwner().equals("Servers")) {
 
-                    if(Computer.getFromLocation(evt.getClickedBlock().getLocation()).getOwner().equals(u)){
+                    if (Computer.getFromLocation(evt.getClickedBlock().getLocation()).getOwner().equals(u)) {
 
                         Computer c = Computer.get(u);
 
-                        if(u.isClicked()){
+                        if (u.isClicked()) {
 
-                            if(c.getCameras().size() == 8){
+                            if (c.getCameras().size() == 8) {
 
                                 evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz dodac juz wiecej kamer!");
 
-                            }else{
+                            } else {
 
                                 c.getCameras().add(u.getClicked());
 
                                 u.getClicked().setConnected(true);
-                                
+
                                 u.setClicked(null);
                                 u.setIsClicked(false);
 
@@ -86,25 +85,25 @@ public class ComputerInteract implements Listener{
 
                             }
 
-                        }else if(c.getEnergy() < 5){
+                        } else if (c.getEnergy() < 5) {
 
                             evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Komputer nie moze byc wlaczony bez energii!");
 
-                        }else if(c.getEnergy() > 5){
+                        } else if (c.getEnergy() > 5) {
 
-                            c.setEnergy(c.getEnergy()-2.5);
+                            c.setEnergy(c.getEnergy() - 2.5);
                             u.sendActionBar(3, 5, 3, ChatColor.DARK_RED + "-2.5 energii");
                             Gui.openComputerGui(u);
 
                         }
 
-            }else{
+                    } else {
 
-                evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz otworzyc czyjegos komputera!");
+                        evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz otworzyc czyjegos komputera!");
 
-            }
+                    }
 
-        }
+                }
 
 
             }

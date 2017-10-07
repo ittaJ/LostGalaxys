@@ -1,7 +1,7 @@
 package com.jatti.entity
 
 
-enum class EntityType(val namee:String, val type: org.bukkit.entity.EntityType) {
+enum class EntityType(val namee: String, val type: org.bukkit.entity.EntityType) {
 
     //TODO Add more types
     RANDOM(),

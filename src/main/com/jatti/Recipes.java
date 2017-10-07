@@ -18,9 +18,8 @@ class Recipes {
     private static List<ShapelessRecipe> shapelessRecipes = new ArrayList<ShapelessRecipe>();
 
 
-    
     //TODO find better way to do it
-    private static void addShaped(){
+    private static void addShaped() {
 
         ItemStack camera = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
         SkullMeta cameraMeta = (SkullMeta) camera.getItemMeta();
@@ -31,7 +30,7 @@ class Recipes {
         camera.setItemMeta(cameraMeta);
 
 
-		ShapedRecipe cameraRecipe = new ShapedRecipe(camera);
+        ShapedRecipe cameraRecipe = new ShapedRecipe(camera);
         cameraRecipe.shape("&&&", "&*&", "&&&");
         cameraRecipe.setIngredient('&', Material.WOOL);
         cameraRecipe.setIngredient('*', Material.GLASS);
@@ -73,24 +72,24 @@ class Recipes {
         shapedRecipes.add(batteryRecipe);
     }
 
-    private static void addShapeless(){
+    private static void addShapeless() {
 
         //TODO White Crystals & Blue Crystals & Yellow Crystals & EnergyAddons
 
     }
 
-     static void register(){
+    static void register() {
 
         addShaped();
         addShapeless();
 
-        for(ShapedRecipe sh : shapedRecipes){
+        for (ShapedRecipe sh : shapedRecipes) {
 
             Bukkit.addRecipe(sh);
 
         }
 
-        for(ShapelessRecipe ush : shapelessRecipes){
+        for (ShapelessRecipe ush : shapelessRecipes) {
 
             Bukkit.addRecipe(ush);
 

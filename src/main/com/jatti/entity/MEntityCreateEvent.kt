@@ -5,7 +5,7 @@ import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 
 
-class MEntityCreateEvent(val entity: Entity, val location:Location): Event(false){
+class MEntityCreateEvent(val entity: Entity, val location: Location) : Event(false) {
 
     private val handlery: HandlerList = HandlerList()
 

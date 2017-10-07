@@ -1,6 +1,6 @@
 package com.jatti.user
 
-class MainLocations{
+class MainLocations {
 
     //TODO set locations
 }

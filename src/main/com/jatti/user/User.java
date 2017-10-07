@@ -1,14 +1,14 @@
 package com.jatti.user;
 
 import com.jatti.achievements.Achievement;
+import com.jatti.camera.Camera;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-import com.jatti.camera.Camera;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -21,21 +21,21 @@ public class User {
     private boolean isChangingName;
     private int level;
     private double exp;
-    private List<Achievement> achievements;
     private boolean isOnPlanet;
+    private List<Achievement> achievements;
 
-    public User(String name){
+    public User(String name) {
 
         this.name = name;
 
         UserUtils.addUser(this);
     }
 
-    public static User get(String name){
+    public static User get(String name) {
 
-        for(User u : UserUtils.getUsers()){
+        for (User u : UserUtils.getUsers()) {
 
-            if(u.getName().equals(name)) return u;
+            if (u.getName().equals(name)) return u;
 
         }
 
@@ -43,15 +43,21 @@ public class User {
 
     }
 
-    public boolean isClicked(){ return isClicked; }
+    public boolean isClicked() {
+        return isClicked;
+    }
 
-    public void setIsClicked(boolean isClicked){ this.isClicked = isClicked; }
+    public void setIsClicked(boolean isClicked) {
+        this.isClicked = isClicked;
+    }
 
     public int getGold() {
         return gold;
     }
 
-    public void setGold(int gold) { this.gold = gold; }
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
 
     public String getName() {
         return name;
@@ -68,14 +74,14 @@ public class User {
     public void setClicked(Camera clicked) {
         this.clicked = clicked;
     }
-    
-    public void sendMessage(String message){
-    	
-    	getPlayer().sendMessage(message);
+
+    public void sendMessage(String message) {
+
+        getPlayer().sendMessage(message);
     }
 
 
-    public void sendActionBar(int fadein, int stay, int fadeout, String message){
+    public void sendActionBar(int fadein, int stay, int fadeout, String message) {
 
         IChatBaseComponent ic = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
         PacketPlayOutTitle pc = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.ACTIONBAR, ic, fadein, stay, fadeout);
@@ -84,12 +90,12 @@ public class User {
 
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         return Bukkit.getPlayer(name);
     }
-    
-    public CraftPlayer getCraftPlayer(){
-    	return (CraftPlayer)getPlayer();
+
+    public CraftPlayer getCraftPlayer() {
+        return (CraftPlayer) getPlayer();
     }
 
     public boolean isHasComputer() {
@@ -124,37 +130,29 @@ public class User {
         this.exp = exp;
     }
 
-    public void checkIfNextLevel(){
+    public void checkIfNextLevel() {
 
-        if(exp == 0) level = 0;
-        if(exp == 2*((level+1)+4) && level < 8){
-            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
-            level+=1;
+        if (exp == 0) level = 0;
+        if (exp == 2 * ((level + 1) + 4) && level < 8) {
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level + 1));
+            level += 1;
         }
-        if(exp == 2.5*((level+1)+5) && level < 18 && level > 8){
-            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
-            level+=1;
+        if (exp == 2.5 * ((level + 1) + 5) && level < 18 && level > 8) {
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level + 1));
+            level += 1;
         }
-        if(exp == 3*(level+1)+20 && level < 37 && level > 18){
-            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
-            level+=1;
+        if (exp == 3 * (level + 1) + 20 && level < 37 && level > 18) {
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level + 1));
+            level += 1;
         }
-        if(exp == 5*(level+1)+3 && level < 41 && level > 37){
-            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
-            level+=1;
+        if (exp == 5 * (level + 1) + 3 && level < 41 && level > 37) {
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level + 1));
+            level += 1;
         }
-        if(exp == 2*(6*((level+1)*2)) && level > 40){
-            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+1));
-            level+=1;
+        if (exp == 2 * (6 * ((level + 1) * 2)) && level > 40) {
+            Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level + 1));
+            level += 1;
         }
-    }
-
-    public List<Achievement> getAchievements() {
-        return achievements;
-    }
-
-    public void setArchievements(List<Achievement> achievements) {
-        this.achievements = achievements;
     }
 
     public boolean isOnPlanet() {
@@ -165,8 +163,21 @@ public class User {
         isOnPlanet = onPlanet;
     }
 
-    public void showTutorial(){
+    public void showTutorial() {
         //TODO Make tutorial
         Bukkit.getPluginManager().callEvent(new TutorialEvent(this));
+    }
+
+    public List<Achievement> getAchievements() {
+        if(achievements == null) achievements = new ArrayList<Achievement>();
+        return achievements;
+    }
+
+    public void setAchievements(List<Achievement> achievements) {
+        this.achievements = achievements;
+    }
+
+    public void addAchievement(Achievement achievement){
+        if(!achievements.contains(achievement)) achievements.add(achievement);
     }
 }

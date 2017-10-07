@@ -17,9 +17,12 @@ public class LostGalaxy extends JavaPlugin {
 
     private static LostGalaxy inst;
 
+    public static LostGalaxy getInst() {
+        return inst;
+    }
 
     @Override
-    public void onEnable(){
+    public void onEnable() {
         inst = this;
         Recipes.register();
         Bukkit.getPluginManager().registerEvents(new CameraInteract(), this);
@@ -34,14 +37,9 @@ public class LostGalaxy extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EntityCreate(), this);
     }
 
-
     @Override
-    public void onDisable(){
+    public void onDisable() {
         inst = null;
-    }
-
-    public static LostGalaxy getInst(){
-        return inst;
     }
 
 }

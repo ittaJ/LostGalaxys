@@ -9,26 +9,26 @@ public class TeleporterUtils {
 
     private static List<Teleporter> teleporterList = new ArrayList<Teleporter>();
 
-    public static List<Teleporter> getTeleporters(){
-        if(teleporterList == null) teleporterList = new ArrayList<Teleporter>();
+    public static List<Teleporter> getTeleporters() {
+        if (teleporterList == null) teleporterList = new ArrayList<Teleporter>();
         return teleporterList;
     }
 
-    public static void addTeleporter(Teleporter teleporter){
-        if(!teleporterList.contains(teleporter)) teleporterList.add(teleporter);
+    public static void addTeleporter(Teleporter teleporter) {
+        if (!teleporterList.contains(teleporter)) teleporterList.add(teleporter);
     }
 
-    public static void removeTeleporter(Teleporter teleporter){
-        if(teleporterList.contains(teleporter)) teleporterList.remove(teleporter);
+    public static void removeTeleporter(Teleporter teleporter) {
+        if (teleporterList.contains(teleporter)) teleporterList.remove(teleporter);
     }
 
-    public static List<Teleporter> getTeleportersForUser(User user){
+    public static List<Teleporter> getTeleportersForUser(User user) {
 
         List<Teleporter> teleporters = new ArrayList<Teleporter>();
 
-        for(Teleporter t : getTeleporters()){
+        for (Teleporter t : getTeleporters()) {
 
-            if(t.getOwner().equals(user)) teleporters.add(t);
+            if (t.getOwner().equals(user)) teleporters.add(t);
 
         }
 

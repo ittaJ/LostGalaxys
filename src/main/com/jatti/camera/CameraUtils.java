@@ -9,20 +9,20 @@ public class CameraUtils {
 
     private static List<Camera> cameras = new ArrayList<Camera>();
 
-    public static List<Camera> getAllCameras(){
+    public static List<Camera> getAllCameras() {
 
-        if(cameras == null) cameras = new ArrayList<Camera>();
+        if (cameras == null) cameras = new ArrayList<Camera>();
 
         return cameras;
     }
 
-    public static List<Camera> getCamerasForUser(User user){
+    public static List<Camera> getCamerasForUser(User user) {
 
         List<Camera> cam = new ArrayList<Camera>();
 
-        for(Camera c : cameras){
+        for (Camera c : cameras) {
 
-            if(c.getOwner().equals(user)) cam.add(c);
+            if (c.getOwner().equals(user)) cam.add(c);
 
         }
 
@@ -30,15 +30,15 @@ public class CameraUtils {
 
     }
 
-    public static void addCamera(Camera camera){
+    public static void addCamera(Camera camera) {
 
-        if(!cameras.contains(camera)) cameras.add(camera);
+        if (!cameras.contains(camera)) cameras.add(camera);
 
     }
 
-    public static void removeCamera(Camera camera){
+    public static void removeCamera(Camera camera) {
 
-        if(cameras.contains(camera)) cameras.remove(camera);
+        if (cameras.contains(camera)) cameras.remove(camera);
 
     }
 

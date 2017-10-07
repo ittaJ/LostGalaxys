@@ -6,14 +6,14 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 
-class BatteryClick: Listener {
+class BatteryClick : Listener {
 
     @EventHandler
-    fun onClick(evt:PlayerInteractEvent){
+    fun onClick(evt: PlayerInteractEvent) {
 
-        val u:User = User.get(evt.player.name)
+        val u: User = User.get(evt.player.name)
 
-        if(BatteryUtils.getBatteriesForUser(u).isNotEmpty()){
+        if (BatteryUtils.getBatteriesForUser(u).isNotEmpty()) {
 
 
             BatteryUtils.getBatteriesForUser(u)

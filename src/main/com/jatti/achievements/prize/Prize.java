@@ -12,18 +12,18 @@ public class Prize {
     private int gold;
     private List<ItemStack> items;
 
-    public Prize(int value){
+    public Prize(int value) {
 
         this.value = value;
         PrizeUtils.addPrize(this);
 
     }
 
-    public static Prize get(int value){
+    public static Prize get(int value) {
 
-        for(Prize p : PrizeUtils.getPrizes()){
+        for (Prize p : PrizeUtils.getPrizes()) {
 
-            if(p.getValue() == value) return p;
+            if (p.getValue() == value) return p;
 
         }
 
@@ -32,7 +32,7 @@ public class Prize {
     }
 
     public List<ItemStack> getItems() {
-        if(items == null) items = new ArrayList<ItemStack>();
+        if (items == null) items = new ArrayList<ItemStack>();
         return items;
     }
 
@@ -52,9 +52,15 @@ public class Prize {
         return xp;
     }
 
-    public void setXp(double xp) { this.xp = xp; }
+    public void setXp(double xp) {
+        this.xp = xp;
+    }
 
-    public int getValue() { return value; }
+    public int getValue() {
+        return value;
+    }
 
-    public void setValue(int value) { this.value = value; }
+    public void setValue(int value) {
+        this.value = value;
+    }
 }

@@ -16,23 +16,22 @@ import java.util.Arrays;
 
 public class Gui {
 
-	private static int getFreeSpace(Inventory inv){
-		
-		for(int i=0; i<inv.getSize(); i++){
-			
-			while(inv.getItem(i) == null){
-				return i;
-			}
-			
-			
-			
-		}
-		
-		return 0;
-		
-	}
-	
-    public static void openComputerGui(User user){
+    private static int getFreeSpace(Inventory inv) {
+
+        for (int i = 0; i < inv.getSize(); i++) {
+
+            while (inv.getItem(i) == null) {
+                return i;
+            }
+
+
+        }
+
+        return 0;
+
+    }
+
+    public static void openComputerGui(User user) {
 
         Inventory inv = Bukkit.createInventory(null, 9, Computer.get(user).getName());
 
@@ -61,7 +60,6 @@ public class Gui {
         energy.setItemMeta(menergy);
 
 
-
         inv.setItem(0, rename);
         inv.setItem(1, cameras);
         inv.setItem(2, energy);
@@ -70,35 +68,45 @@ public class Gui {
         user.getPlayer().openInventory(inv);
 
 
-}
+    }
 
-    public static void openCamerasGui(User user){
+    public static void openCamerasGui(User user) {
 
-    	Computer c = Computer.get(user);
-    	
-    	Inventory inv = Bukkit.createInventory(null, 9, ChatColor.GOLD + "Kamery");
-    	
-    	for(Camera cam : c.getCameras()){
-    		
-    		ItemStack is = new ItemStack(Material.BUCKET, 1);
-    		ItemMeta m = is.getItemMeta();
-    		m.setDisplayName(ChatColor.DARK_GREEN + "" + cam.getValue());
-    		is.setItemMeta(m);
-    		
-    		inv.setItem(getFreeSpace(inv), is);
-    		
-    	}
-    	
-    	user.getPlayer().openInventory(inv);
-    	
+        Computer c = Computer.get(user);
+
+        Inventory inv = Bukkit.createInventory(null, 9, ChatColor.GOLD + "Kamery");
+
+        for (Camera cam : c.getCameras()) {
+
+            ItemStack is = new ItemStack(Material.BUCKET, 1);
+            ItemMeta m = is.getItemMeta();
+            m.setDisplayName(ChatColor.DARK_GREEN + "" + cam.getValue());
+            is.setItemMeta(m);
+
+            inv.setItem(getFreeSpace(inv), is);
+
+        }
+
+        user.getPlayer().openInventory(inv);
+
 
     }
 
-    public static void openEnergyGui(User user, Location location){
+    public static void openEnergyGui(User user, Location location) {
 
-        Battery b = Battery.Companion.get(user,location);
+        Battery b = Battery.Companion.get(user, location);
 
         Bukkit.createInventory(null, 0, ChatColor.DARK_GREEN + "Energia w tej baterii to: " + ChatColor.GOLD + b.getEnergy());
+    }
+
+    public static void openAddEnergyGui(User user){
+
+    }
+
+    public static void openAchievementGui(User user){
+
+
+
     }
 
 }

@@ -5,25 +5,25 @@ import java.util.List;
 
 public class ComputerUtils {
 
-    private static List<Computer>  computers = new ArrayList<Computer>();
+    private static List<Computer> computers = new ArrayList<Computer>();
 
-    public static List<Computer> getComputers(){
+    public static List<Computer> getComputers() {
 
-        if(computers == null) computers = new ArrayList<Computer>();
+        if (computers == null) computers = new ArrayList<Computer>();
 
         return computers;
 
     }
 
-    public static void addComputer(Computer computer){
+    public static void addComputer(Computer computer) {
 
-        if(!computers.contains(computer)) computers.add(computer);
+        if (!computers.contains(computer)) computers.add(computer);
 
     }
 
-    public static void removeComputer(Computer computer){
+    public static void removeComputer(Computer computer) {
 
-        if(computers.contains(computer)) computers.remove(computer);
+        if (computers.contains(computer)) computers.remove(computer);
 
     }
 

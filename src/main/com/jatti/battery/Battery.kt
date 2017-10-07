@@ -1,4 +1,4 @@
-package com.jatti.battery;
+package com.jatti.battery
 
 import com.jatti.energy.EnergyAddon
 import com.jatti.machine.Machine
@@ -6,13 +6,13 @@ import com.jatti.user.User
 import org.bukkit.Location
 
 
-class Battery(owner: User):Machine(owner, BatteryUtils.getBatteriesForUser(owner).size + 1){
+class Battery(owner: User) : Machine(owner, BatteryUtils.getBatteriesForUser(owner).size + 1) {
 
     //TODO add machines list powered by this battery
-    var maxEnergy:Int = 100
-    var energyUsage:Int = 0
+    var maxEnergy: Int = 100
+    var energyUsage: Int = 0
 
-    init{
+    init {
 
         BatteryUtils.addBattery(this)
 
@@ -20,7 +20,7 @@ class Battery(owner: User):Machine(owner, BatteryUtils.getBatteriesForUser(owner
 
     companion object {
 
-        fun get(owner:User, whereIs:Location):Battery{
+        fun get(owner: User, whereIs: Location): Battery {
 
             BatteryUtils.getBatteriesForUser(owner)
                     .filter { it.whereIs == whereIs }
@@ -29,8 +29,8 @@ class Battery(owner: User):Machine(owner, BatteryUtils.getBatteriesForUser(owner
         }
     }
 
-    fun addMaxEnergy(energyToAdd:EnergyAddon){
-        this.maxEnergy = this.maxEnergy+energyToAdd.energyToAdd
+    fun addMaxEnergy(energyToAdd: EnergyAddon) {
+        this.maxEnergy = this.maxEnergy + energyToAdd.energyToAdd
     }
 
 }
