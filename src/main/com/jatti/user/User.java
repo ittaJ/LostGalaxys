@@ -2,9 +2,11 @@ package com.jatti.user;
 
 import com.jatti.achievements.Achievement;
 import com.jatti.camera.Camera;
+import com.jatti.user.tutorial.TutorialEvent;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -23,6 +25,7 @@ public class User {
     private double exp;
     private boolean isOnPlanet;
     private List<Achievement> achievements;
+    private List<Integer> ids;
 
     public User(String name) {
 
@@ -155,6 +158,24 @@ public class User {
         }
     }
 
+    public void addLevels(int levels){
+
+        Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+levels));
+        this.level = level+levels;
+
+    }
+
+    public void addExp(double exp){
+
+        this.exp = this.exp+exp;
+        checkIfNextLevel();
+
+    }
+
+    public void addGold(int gold){
+        this.gold = this.gold+gold;
+    }
+
     public boolean isOnPlanet() {
         return isOnPlanet;
     }
@@ -164,7 +185,6 @@ public class User {
     }
 
     public void showTutorial() {
-        //TODO Make tutorial
         Bukkit.getPluginManager().callEvent(new TutorialEvent(this));
     }
 
@@ -179,5 +199,19 @@ public class User {
 
     public void addAchievement(Achievement achievement){
         if(!achievements.contains(achievement)) achievements.add(achievement);
+        sendMessage(""+ ChatColor.GREEN + "Zdobyto osiagniecie " + achievement.getName() + " !");
+    }
+
+
+    public List<Integer> getMissionsID() {
+        return ids;
+    }
+
+    public void setMissionsID(List<Integer> ids) {
+        this.ids = ids;
+    }
+
+    public void addMissionID(Integer id){
+        if(!ids.contains(id)) ids.add(id);
     }
 }

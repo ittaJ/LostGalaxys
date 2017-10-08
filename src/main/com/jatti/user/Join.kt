@@ -1,5 +1,6 @@
 package com.jatti.user
 
+import com.jatti.achievements.missions.ViewTutorialMission
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
@@ -13,7 +14,7 @@ class Join : Listener {
 
             val u: User = User.get(evt.player.name)
 
-            u.showTutorial()
+            ViewTutorialMission().onGet(u)
             u.level = 0
             u.exp = 0.0
             u.gold = 500

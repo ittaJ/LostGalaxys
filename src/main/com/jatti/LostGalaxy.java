@@ -8,6 +8,7 @@ import com.jatti.computer.ComputerChangeName;
 import com.jatti.computer.ComputerGuiInteract;
 import com.jatti.computer.ComputerInteract;
 import com.jatti.entity.EntityCreate;
+import com.jatti.teleporter.TeleporterPlace;
 import com.jatti.user.Join;
 import com.jatti.user.LevelUp;
 import org.bukkit.Bukkit;
@@ -35,6 +36,7 @@ public class LostGalaxy extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new LevelUp(), this);
         Bukkit.getPluginManager().registerEvents(new Join(), this);
         Bukkit.getPluginManager().registerEvents(new EntityCreate(), this);
+        Bukkit.getPluginManager().registerEvents(new TeleporterPlace(), this);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.jatti.entity;
 
+import com.jatti.achievements.prize.Prize;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,7 +28,6 @@ public class EntitiesUtils {
         List<EntityType> types = new ArrayList<EntityType>();
 
         types.add(EntityType.DESERT_ZOMBIE);
-        types.add(EntityType.SLIME);
         types.add(EntityType.SUCKER);
         types.add(EntityType.WISP);
         types.add(EntityType.ZOMBIE);

@@ -1,5 +1,6 @@
-package com.jatti.user
+package com.jatti.user.tutorial
 
+import com.jatti.user.User
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 

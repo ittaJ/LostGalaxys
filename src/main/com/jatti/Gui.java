@@ -1,5 +1,6 @@
 package com.jatti;
 
+import com.jatti.achievements.Achievement;
 import com.jatti.battery.Battery;
 import com.jatti.camera.Camera;
 import com.jatti.computer.Computer;
@@ -13,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Gui {
 
@@ -105,7 +107,7 @@ public class Gui {
 
     public static void openAchievementGui(User user){
 
-
+        //TODO
 
     }
 
