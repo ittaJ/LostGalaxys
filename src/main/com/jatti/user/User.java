@@ -24,8 +24,8 @@ public class User {
     private int level;
     private double exp;
     private boolean isOnPlanet;
-    private List<Achievement> achievements;
-    private List<Integer> ids;
+    private List<Achievement> achievements = new ArrayList<Achievement>();
+    private List<Integer> ids = new ArrayList<Integer>();
 
     public User(String name) {
 
@@ -204,6 +204,7 @@ public class User {
 
 
     public List<Integer> getMissionsID() {
+        if(ids == null) ids = new ArrayList<Integer>();
         return ids;
     }
 

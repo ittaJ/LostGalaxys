@@ -11,4 +11,5 @@ enum class EntityType(val namee: String, val type: org.bukkit.entity.EntityType)
     SUCKER("Pijawka", org.bukkit.entity.EntityType.SLIME);
 
     constructor()
+
 }

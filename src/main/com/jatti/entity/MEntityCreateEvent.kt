@@ -14,4 +14,14 @@ class MEntityCreateEvent(val entity: Entity, val location: Location) : Event(fal
         return handlery
     }
 
+    companion object {
+
+        val handlery:HandlerList = HandlerList()
+
+        @JvmStatic fun getHandlerList():HandlerList{
+            return handlery
+        }
+
+    }
+
 }

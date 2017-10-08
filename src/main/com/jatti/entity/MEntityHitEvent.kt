@@ -13,4 +13,14 @@ class MEntityHitEvent(var target: User, var hit: Entity) : Event(false) {
         return handlery
     }
 
+    companion object {
+
+        val handlery:HandlerList = HandlerList()
+
+        @JvmStatic fun getHandlerList():HandlerList{
+            return handlery
+        }
+
+    }
+
 }
