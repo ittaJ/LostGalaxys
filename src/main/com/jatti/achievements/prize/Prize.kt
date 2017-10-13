@@ -5,7 +5,7 @@ import org.bukkit.inventory.ItemStack
 
 open class Prize{
 
-    var items:List<ItemStack> = ArrayList()
+    var items:List<ItemStack>? = ArrayList()
     var gold:Int = 0
     var exp:Double = 0.0
     var user:User? = null
@@ -45,8 +45,10 @@ class PrizeBuilder{
 
     fun build():Prize{
 
-        for(i in p.items) {
-            p.user!!.player.inventory.addItem(i)
+        if(p.items !=null) {
+            for (i in p.items!!) {
+                p.user!!.player.inventory.addItem(i)
+            }
         }
 
         p.user!!.addGold(p.gold)

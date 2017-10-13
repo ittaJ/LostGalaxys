@@ -1,5 +1,6 @@
 package com.jatti;
 
+import com.jatti.achievements.missions.npc.NpcClick;
 import com.jatti.achievements.missions.npc.Spawn;
 import com.jatti.atmosphere.AtmosphereChange;
 import com.jatti.camera.CameraGuiInteract;
@@ -38,6 +39,7 @@ public class LostGalaxy extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Join(), this);
         Bukkit.getPluginManager().registerEvents(new EntityCreate(), this);
         Bukkit.getPluginManager().registerEvents(new TeleporterPlace(), this);
+        Bukkit.getPluginManager().registerEvents(new NpcClick(), this);
         getCommand("spawnnpc").setExecutor(new Spawn());
     }
 
