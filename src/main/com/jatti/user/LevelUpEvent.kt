@@ -13,9 +13,10 @@ class LevelUpEvent(var user: User, var oldLevel: Int, var newLevel: Int) : Event
 
     companion object {
 
-        val handlery:HandlerList = HandlerList()
+        val handlery: HandlerList = HandlerList()
 
-        @JvmStatic fun getHandlerList():HandlerList{
+        @JvmStatic
+        fun getHandlerList(): HandlerList {
             return handlery
         }
 

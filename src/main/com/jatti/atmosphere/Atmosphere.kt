@@ -21,7 +21,8 @@ class Atmosphere(var name: String) {
 
     companion object {
 
-        operator fun get(name: String): Atmosphere {
+        @JvmStatic
+        fun get(name: String): Atmosphere {
 
             AtmosphereUtils.getAtmospheres()
                     .filter { it.name == name }

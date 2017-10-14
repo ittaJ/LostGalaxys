@@ -13,8 +13,8 @@ class EntityCreate : Listener {
 
             val e: Entity = Entity.get(EntitiesUtils.getEntities().size + 1)
 
-            evt.entity.remove()
             e.onCreate(evt.location)
+            evt.entity.remove()
         }
 
     }

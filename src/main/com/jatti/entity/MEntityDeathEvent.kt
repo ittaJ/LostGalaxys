@@ -14,9 +14,10 @@ class MEntityDeathEvent(var entity: Entity, var killer: User) : Event(false) {
 
     companion object {
 
-        val handlery:HandlerList = HandlerList()
+        val handlery: HandlerList = HandlerList()
 
-        @JvmStatic fun getHandlerList():HandlerList{
+        @JvmStatic
+        fun getHandlerList(): HandlerList {
             return handlery
         }
 

@@ -15,7 +15,7 @@ class TeleporterPlace : Listener {
     @EventHandler
     fun onPlace(evt: BlockPlaceEvent) {
 
-        if(evt.blockPlaced.type == Material.WOOL) {
+        if (evt.blockPlaced.type == Material.WOOL) {
 
             if (evt.itemInHand.hasItemMeta()) {
 

@@ -14,9 +14,10 @@ class TutorialEvent(var user: User) : Event(false) {
 
     companion object {
 
-        val handlery:HandlerList = HandlerList()
+        val handlery: HandlerList = HandlerList()
 
-        @JvmStatic fun getHandlerList():HandlerList{
+        @JvmStatic
+        fun getHandlerList(): HandlerList {
             return handlery
         }
 

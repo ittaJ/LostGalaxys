@@ -11,7 +11,8 @@ open class Achievement(var id: Int) {
 
     companion object {
 
-        fun builder(id: Int): AchievementBuilder{
+        @JvmStatic
+        fun builder(id: Int): AchievementBuilder {
             return AchievementBuilder(id)
         }
 

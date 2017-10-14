@@ -1,7 +1,5 @@
 package com.jatti.entity;
 
-import com.jatti.achievements.prize.Prize;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

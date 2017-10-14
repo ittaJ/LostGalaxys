@@ -2,6 +2,8 @@ package com.jatti.user;
 
 import com.jatti.achievements.Achievement;
 import com.jatti.camera.Camera;
+import com.jatti.user.rangs.Rang;
+import com.jatti.user.rangs.RangUtils;
 import com.jatti.user.tutorial.TutorialEvent;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
 import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
@@ -15,6 +17,7 @@ import java.util.List;
 
 public class User {
 
+    //TODO rewrite
     private String name;
     private int gold;
     private Camera clicked;
@@ -24,6 +27,7 @@ public class User {
     private int level;
     private double exp;
     private boolean isOnPlanet;
+    private Rang rang;
     private List<Achievement> achievements = new ArrayList<Achievement>();
     private List<Integer> ids = new ArrayList<Integer>();
 
@@ -133,6 +137,7 @@ public class User {
         this.exp = exp;
     }
 
+    //TODO add rangs
     public void checkIfNextLevel() {
 
         if (exp == 0) level = 0;
@@ -158,22 +163,24 @@ public class User {
         }
     }
 
-    public void addLevels(int levels){
 
-        Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level+levels));
-        this.level = level+levels;
+
+    public void addLevels(int levels) {
+
+        Bukkit.getPluginManager().callEvent(new LevelUpEvent(this, level, level + levels));
+        this.level = level + levels;
 
     }
 
-    public void addExp(double exp){
+    public void addExp(double exp) {
 
-        this.exp = this.exp+exp;
+        this.exp = this.exp + exp;
         checkIfNextLevel();
 
     }
 
-    public void addGold(int gold){
-        this.gold = this.gold+gold;
+    public void addGold(int gold) {
+        this.gold = this.gold + gold;
     }
 
     public boolean isOnPlanet() {
@@ -189,7 +196,7 @@ public class User {
     }
 
     public List<Achievement> getAchievements() {
-        if(achievements == null) achievements = new ArrayList<Achievement>();
+        if (achievements == null) achievements = new ArrayList<Achievement>();
         return achievements;
     }
 
@@ -197,14 +204,14 @@ public class User {
         this.achievements = achievements;
     }
 
-    public void addAchievement(Achievement achievement){
-        if(!achievements.contains(achievement)) achievements.add(achievement);
-        sendMessage(""+ ChatColor.GREEN + "Zdobyto osiagniecie " + achievement.getName() + " !");
+    public void addAchievement(Achievement achievement) {
+        if (!achievements.contains(achievement)) achievements.add(achievement);
+        sendMessage("" + ChatColor.GREEN + "Zdobyto osiagniecie " + achievement.getName() + " !");
     }
 
 
     public List<Integer> getMissionsID() {
-        if(ids == null) ids = new ArrayList<Integer>();
+        if (ids == null) ids = new ArrayList<Integer>();
         return ids;
     }
 
@@ -212,7 +219,15 @@ public class User {
         this.ids = ids;
     }
 
-    public void addMissionID(Integer id){
-        if(!ids.contains(id)) ids.add(id);
+    public void addMissionID(Integer id) {
+        if (!ids.contains(id)) ids.add(id);
+    }
+
+    public Rang getRang() {
+        return rang;
+    }
+
+    public void setRang(Rang rang) {
+        this.rang = rang;
     }
 }

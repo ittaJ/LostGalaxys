@@ -6,15 +6,15 @@ import org.bukkit.inventory.MerchantRecipe
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 
-class Npc(val id:Int, val location:Location){
+class Npc(val id: Int, val location: Location) {
 
 
-    init{
+    init {
         NpcUtils.addNpc(this)
     }
 
-    fun spawn(){
-        val z:Villager = location.world.spawn(location, Villager::class.java)
+    fun spawn() {
+        val z: Villager = location.world.spawn(location, Villager::class.java)
         z.setAI(false)
         z.addPotionEffect(PotionEffect(PotionEffectType.HEAL, Int.MAX_VALUE, Int.MAX_VALUE, false, false))
         z.recipes = ArrayList<MerchantRecipe>()

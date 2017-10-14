@@ -1,6 +1,5 @@
 package com.jatti;
 
-import com.jatti.achievements.Achievement;
 import com.jatti.battery.Battery;
 import com.jatti.camera.Camera;
 import com.jatti.computer.Computer;
@@ -14,7 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class Gui {
 
@@ -101,11 +99,11 @@ public class Gui {
         Bukkit.createInventory(null, 0, ChatColor.DARK_GREEN + "Energia w tej baterii to: " + ChatColor.GOLD + b.getEnergy());
     }
 
-    public static void openAddEnergyGui(User user){
+    public static void openAddEnergyGui(User user) {
 
     }
 
-    public static void openAchievementGui(User user){
+    public static void openAchievementGui(User user) {
 
         //TODO
 

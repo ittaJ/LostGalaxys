@@ -15,7 +15,7 @@ class TestMission : Mission {
 
         user.sendMessage("" + ChatColor.GOLD + "Brawo skonczyles testowa misje!")
         user.addLevels(1)
-        val ach:Achievement = Achievement.builder(1).withName("Testowe Osiagniecie!").withDesc(Arrays.asList("Fajne osiagniecie", "Ale ono fajne")).withDifficulty(AchievementDifficulty.HARD).build()
+        val ach: Achievement = Achievement.builder(1).withName("Testowe Osiagniecie!").withDesc(Arrays.asList("Fajne osiagniecie", "Ale ono fajne")).withDifficulty(AchievementDifficulty.HARD).build()
         user.addAchievement(ach)
     }
 

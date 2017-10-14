@@ -2,23 +2,47 @@ package com.jatti.entity
 
 import com.jatti.user.User
 import org.bukkit.Bukkit
+import org.bukkit.ChatColor
 import org.bukkit.Location
 import java.util.*
 
-class Entity(var type: EntityType) {
+open class Entity(open var type: EntityType?) {
 
+    constructor() : this(null)
     //TODO add pets
-    var level: Int = 0
-    var expToDrop: Double = 0.0
-    var id: Int = 0
-    var life: Int = 0
+    open var isTamed:Boolean = false
+    open var tamer:User? = null
+    open var isAgressive:Boolean = true
+    open var level: Int = 0
+    open var expToDrop: Double = 0.0
+    open var id: Int = 0
+    open var life: Int = 0
+    open var entityCategory:EntityCategory? = null
 
-    fun onHit(hitted: Boolean, g: User) {
+    fun onHit(hitted: Boolean, user: User) {
 
-        return if (hitted) {
-            Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, g))
-        } else {
-            Bukkit.getPluginManager().callEvent(MEntityHitEvent(g, this))
+        if(isAgressive){
+
+            return if(hitted){
+                Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
+            }else{
+                Bukkit.getPluginManager().callEvent(MEntityHitEvent(user, this))
+            }
+
+        }else{
+            if(hitted){
+                Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
+            }
+        }
+
+        if(isTamed){
+            if(hitted){
+                if(user == tamer!!){
+                    user.sendMessage("" + ChatColor.DARK_RED + "Nie mozesz udezyc swojego zwierzaka!")
+                }else{
+                    Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
+                }
+            }
         }
 
     }
@@ -47,6 +71,7 @@ class Entity(var type: EntityType) {
 
     companion object {
 
+        @JvmStatic
         fun get(id: Int): Entity {
 
             EntitiesUtils.getEntities()

@@ -36,13 +36,13 @@ public class TeleporterUtils {
 
     }
 
-    public static List<Teleporter> getTeleportersForUserInChannel(User user, int channel){
+    public static List<Teleporter> getTeleportersForUserInChannel(User user, int channel) {
 
         List<Teleporter> teleporters = new ArrayList<Teleporter>();
 
-        for(Teleporter t : getTeleportersForUser(user)){
+        for (Teleporter t : getTeleportersForUser(user)) {
 
-            if(t.getChannel() == channel){
+            if (t.getChannel() == channel) {
 
                 teleporters.add(t);
 

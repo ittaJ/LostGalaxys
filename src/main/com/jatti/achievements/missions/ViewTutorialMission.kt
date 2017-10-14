@@ -7,14 +7,14 @@ import com.jatti.user.User
 import org.bukkit.ChatColor
 import java.util.*
 
-class ViewTutorialMission: Mission{
+class ViewTutorialMission : Mission {
 
     override val name: String = "Zobacz Samouczek"
     override val id: Int = 2
 
     override fun onComplete(user: User) {
 
-        if(user.missionsID.contains(id)) {
+        if (user.missionsID.contains(id)) {
             user.sendMessage("" + ChatColor.GOLD + "[" + ChatColor.AQUA + "Misje" + ChatColor.GOLD + "]" + ChatColor.GREEN + " Zakonczyles misje " + ChatColor.DARK_GREEN + "' " + name + "'" + ChatColor.GREEN + "!")
 
             user.addAchievement(Achievement.builder(2).withName("Samouczek")
