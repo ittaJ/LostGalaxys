@@ -9,37 +9,38 @@ import java.util.*
 open class Entity(open var type: EntityType?) {
 
     constructor() : this(null)
+
     //TODO add pets
-    open var isTamed:Boolean = false
-    open var tamer:User? = null
-    open var isAgressive:Boolean = true
+    open var isTamed: Boolean = false
+    open var tamer: User? = null
+    open var isAgressive: Boolean = true
     open var level: Int = 0
     open var expToDrop: Double = 0.0
     open var id: Int = 0
     open var life: Int = 0
-    open var entityCategory:EntityCategory? = null
+    open var entityCategory: EntityCategory? = null
 
     fun onHit(hitted: Boolean, user: User) {
 
-        if(isAgressive){
+        if (isAgressive) {
 
-            return if(hitted){
+            return if (hitted) {
                 Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
-            }else{
+            } else {
                 Bukkit.getPluginManager().callEvent(MEntityHitEvent(user, this))
             }
 
-        }else{
-            if(hitted){
+        } else {
+            if (hitted) {
                 Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
             }
         }
 
-        if(isTamed){
-            if(hitted){
-                if(user == tamer!!){
+        if (isTamed) {
+            if (hitted) {
+                if (user == tamer!!) {
                     user.sendMessage("" + ChatColor.DARK_RED + "Nie mozesz udezyc swojego zwierzaka!")
-                }else{
+                } else {
                     Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
                 }
             }

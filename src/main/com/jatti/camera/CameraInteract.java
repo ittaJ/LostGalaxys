@@ -1,7 +1,6 @@
 package com.jatti.camera;
 
 import com.jatti.computer.Computer;
-import com.jatti.user.User;
 import org.bukkit.ChatColor;
 import org.bukkit.Instrument;
 import org.bukkit.Material;
@@ -16,7 +15,11 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.HashMap;
+
 public class CameraInteract implements Listener {
+
+    public static HashMap<User, Camera> isClicked = new HashMap<User, Camera>();
 
     @SuppressWarnings("deprecation")
     @EventHandler
@@ -31,7 +34,7 @@ public class CameraInteract implements Listener {
                 User u = User.get(evt.getPlayer().getName());
 
 
-                if (!u.isHasComputer()) {
+                if (!u.hasComputer()) {
 
                     evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz postawic kamery jesli nie masz komputera!");
                     evt.setCancelled(true);
@@ -85,8 +88,7 @@ public class CameraInteract implements Listener {
                             if (!c.isConnected()) {
                                 User u = User.get(evt.getPlayer().getName());
 
-                                u.setClicked(c);
-                                u.setIsClicked(true);
+                                isClicked.put(u, c);
                                 evt.getPlayer().sendMessage(ChatColor.GOLD + "Polacz ta kamere z komputerem, by moc jej uzywac!");
                                 u.getPlayer().playNote(u.getPlayer().getLocation(), Instrument.XYLOPHONE, Note.flat(1, Tone.B));
 

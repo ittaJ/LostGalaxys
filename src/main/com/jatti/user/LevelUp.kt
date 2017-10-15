@@ -12,7 +12,7 @@ class LevelUp : Listener {
     fun onLevelUp(evt: LevelUpEvent) {
 
         evt.user.sendMessage("" + ChatColor.DARK_GREEN + "Gratulacje! Osiagnieto nastepny poziom " + ChatColor.GOLD + evt.newLevel)
-        evt.user.player.playSound(evt.user.player.location, Sound.ENTITY_PLAYER_LEVELUP, 0F, 1F)
+        evt.user.getPlayer().playSound(evt.user.getPlayer().location, Sound.ENTITY_PLAYER_LEVELUP, 0F, 1F)
 
         Prize.builder().forUser(evt.user).withExp(100.0).withGold(50).build()
 

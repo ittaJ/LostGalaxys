@@ -61,4 +61,11 @@ public class Computer extends Machine {
         this.cameras = cameras;
     }
 
+    public void addCamera(Camera c) {
+        if (!cameras.contains(c)) {
+            cameras.add(c);
+            c.setConnected(true);
+        }
+    }
+
 }

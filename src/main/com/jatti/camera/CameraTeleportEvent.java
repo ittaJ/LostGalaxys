@@ -1,7 +1,6 @@
 package com.jatti.camera;
 
 import com.jatti.computer.Computer;
-import com.jatti.user.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 

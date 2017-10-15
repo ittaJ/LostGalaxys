@@ -1,5 +1,6 @@
 package com.jatti.teleporter;
 
+
 import com.jatti.user.User;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class TeleporterUtils {
 
         for (Teleporter t : getTeleporters()) {
 
-            if (t.getOwner().equals(user)) teleporters.add(t);
+            if (t.getOwner() == user) teleporters.add(t);
 
         }
 

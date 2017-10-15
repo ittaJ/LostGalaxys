@@ -3,7 +3,6 @@ package com.jatti.planet;
 import com.jatti.atmosphere.Atmosphere;
 import com.jatti.atmosphere.AtmosphereChangeEvent;
 import com.jatti.entity.Entity;
-import com.jatti.user.User;
 import org.bukkit.Bukkit;
 
 import java.util.List;

@@ -2,6 +2,7 @@ package com.jatti.teleporter
 
 import com.jatti.machine.Machine
 import com.jatti.user.User
+
 import org.bukkit.Location
 
 class Teleporter(owner: User, val channel: Int, val id: Int) : Machine(owner) {

@@ -8,8 +8,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import java.util.HashMap;
+
 public class ComputerGuiInteract implements Listener {
 
+    public static HashMap<User, Boolean> changingName = new HashMap<User, Boolean>();
 
     @EventHandler
     public void onInvClick(InventoryClickEvent evt) {
@@ -18,7 +21,7 @@ public class ComputerGuiInteract implements Listener {
 
             User u = User.get(evt.getWhoClicked().getName());
 
-            if (u.isHasComputer()) {
+            if (u.getHasComputer()) {
 
                 Computer c = Computer.get(u);
 
@@ -35,7 +38,7 @@ public class ComputerGuiInteract implements Listener {
                         c.removeEnergy(u, 1);
                         evt.getWhoClicked().closeInventory();
                         evt.getWhoClicked().sendMessage(ChatColor.DARK_GREEN + "Zmien nazwe komputera (napisz na chacie)");
-                        u.setChangingName(true);
+                        changingName.put(u, true);
 
                     }
 

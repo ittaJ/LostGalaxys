@@ -37,7 +37,7 @@ class NpcClick : Listener {
 
                         if (n.id == mission.id) {
 
-                            if (u.missionsID.contains(mission.id)) {
+                            if (u.missions!!.contains(mission.id)) {
 
                                 mission.onComplete(u)
 

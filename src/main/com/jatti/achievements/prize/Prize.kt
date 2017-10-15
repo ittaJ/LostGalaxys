@@ -48,7 +48,7 @@ class PrizeBuilder {
 
         if (p.items != null) {
             for (i in p.items!!) {
-                p.user!!.player.inventory.addItem(i)
+                p.user!!.getPlayer().inventory.addItem(i)
             }
         }
 

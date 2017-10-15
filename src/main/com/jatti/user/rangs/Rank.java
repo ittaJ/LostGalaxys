@@ -5,34 +5,35 @@ import com.jatti.user.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rang {
+public class Rank {
 
     private String name;
+    private String prefix;
     private int level;
     private List<User> usersWith = new ArrayList<User>();
 
-    public Rang(String name){
+    public Rank(String name) {
         this.name = name;
     }
 
-    public static Rang get(String name){
+    public static Rank get(String name) {
 
-        for(Rang r : RangUtils.getRangs()){
+        for (Rank r : RankUtils.getRangs()) {
 
-            if(r.name.equals(name)){
+            if (r.name.equals(name)) {
 
                 return r;
             }
         }
-        return new Rang(name);
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return new Rank(name);
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getLevel() {
@@ -44,11 +45,24 @@ public class Rang {
     }
 
     public List<User> getUsersWith() {
-        if(usersWith == null) usersWith = new ArrayList<User>();
+        if (usersWith == null) usersWith = new ArrayList<User>();
         return usersWith;
     }
 
     public void setUsersWith(List<User> usersWith) {
         this.usersWith = usersWith;
+    }
+
+    public void addUser(User user){
+        if(!usersWith.contains(user)) usersWith.add(user);
+        user.setRank(this);
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 }

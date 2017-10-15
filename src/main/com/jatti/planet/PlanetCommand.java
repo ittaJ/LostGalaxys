@@ -4,15 +4,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class PlanetCommand implements CommandExecutor{
+public class PlanetCommand implements CommandExecutor {
 
-    public boolean onCommand(CommandSender snd, Command cmd, String l, String[] args){
+    public boolean onCommand(CommandSender snd, Command cmd, String l, String[] args) {
 
-        if(cmd.getName().equalsIgnoreCase("p")){
+        if (cmd.getName().equalsIgnoreCase("p")) {
 
-            if(args.length == 1){
+            if (args.length == 1) {
 
-                if(args[0].equalsIgnoreCase("stworz") || args[0].equalsIgnoreCase("create")){
+                if (args[0].equalsIgnoreCase("stworz") || args[0].equalsIgnoreCase("create")) {
 
                     //TODO done after rewriting User class
 

@@ -13,11 +13,11 @@ class ComputerChangeName : Listener {
 
         val u: User = User.get(evt.player.name)
 
-        if (u.isChangingName) {
+        if (ComputerGuiInteract.changingName.containsKey(u)) {
 
             Computer.get(u).name = evt.message
 
-            u.isChangingName = false
+            ComputerGuiInteract.changingName.remove(u)
             u.sendMessage("" + ChatColor.DARK_GREEN + "Zmieniono nazwe komputera!")
 
         }

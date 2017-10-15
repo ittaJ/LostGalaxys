@@ -1,7 +1,7 @@
 package com.jatti.computer;
 
 import com.jatti.Gui;
-import com.jatti.user.User;
+import com.jatti.camera.CameraInteract;
 import org.bukkit.*;
 import org.bukkit.Note.Tone;
 import org.bukkit.block.Skull;
@@ -22,13 +22,13 @@ public class ComputerInteract implements Listener {
 
             if (s.getOwner().equals("Servers")) {
                 User u = User.get(evt.getPlayer().getName());
-                if (!u.isHasComputer()) {
+                if (!u.hasComputer()) {
 
                     Computer c = Computer.get(u);
                     c.setWhere(evt.getBlockPlaced().getLocation());
                     c.setEnergy(60);
                     c.setName("Komputer");
-                    u.setHasComputer(true);
+                    u.hasComputer(true);
 
 
                 } else {
@@ -62,7 +62,7 @@ public class ComputerInteract implements Listener {
 
                         Computer c = Computer.get(u);
 
-                        if (u.isClicked()) {
+                        if (CameraInteract.isClicked.containsKey(u)) {
 
                             if (c.getCameras().size() == 8) {
 
@@ -70,12 +70,9 @@ public class ComputerInteract implements Listener {
 
                             } else {
 
-                                c.getCameras().add(u.getClicked());
+                                c.addCamera(CameraInteract.isClicked.get(u));
 
-                                u.getClicked().setConnected(true);
-
-                                u.setClicked(null);
-                                u.setIsClicked(false);
+                                CameraInteract.isClicked.remove(u);
 
                                 evt.getPlayer().playNote(evt.getPlayer().getLocation(), Instrument.XYLOPHONE, Note.flat(1, Tone.E));
                                 evt.getPlayer().spawnParticle(Particle.END_ROD, evt.getClickedBlock().getLocation(), 50);

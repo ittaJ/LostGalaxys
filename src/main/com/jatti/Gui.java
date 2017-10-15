@@ -23,10 +23,7 @@ public class Gui {
             while (inv.getItem(i) == null) {
                 return i;
             }
-
-
         }
-
         return 0;
 
     }
@@ -80,7 +77,7 @@ public class Gui {
 
             ItemStack is = new ItemStack(Material.BUCKET, 1);
             ItemMeta m = is.getItemMeta();
-            m.setDisplayName(ChatColor.DARK_GREEN + "" + cam.getValue());
+            m.setDisplayName(ChatColor.AQUA + "" + cam.getValue());
             is.setItemMeta(m);
 
             inv.setItem(getFreeSpace(inv), is);

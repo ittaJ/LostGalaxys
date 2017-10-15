@@ -11,10 +11,10 @@ class ViewTutorialMission : Mission {
 
     override val name: String = "Zobacz Samouczek"
     override val id: Int = 2
-
+    override val lore: List<String> = Arrays.asList("Zobacz samouczek", "No zobacz noo")
     override fun onComplete(user: User) {
 
-        if (user.missionsID.contains(id)) {
+        if (user.missions!!.contains(id)) {
             user.sendMessage("" + ChatColor.GOLD + "[" + ChatColor.AQUA + "Misje" + ChatColor.GOLD + "]" + ChatColor.GREEN + " Zakonczyles misje " + ChatColor.DARK_GREEN + "' " + name + "'" + ChatColor.GREEN + "!")
 
             user.addAchievement(Achievement.builder(2).withName("Samouczek")
@@ -28,7 +28,7 @@ class ViewTutorialMission : Mission {
 
         user.sendMessage("" + ChatColor.GOLD + "[" + ChatColor.AQUA + "Misje" + ChatColor.GOLD + "]" + ChatColor.GREEN + "Dostales nowa misje!")
         user.sendMessage("" + ChatColor.GREEN + "Zobacz samouczek, by zdobyc osiagniecie, oraz pare nagrod!")
-        user.addMissionID(id)
+        user.addMission(id)
 
     }
 

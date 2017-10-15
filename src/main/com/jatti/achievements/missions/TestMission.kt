@@ -10,6 +10,7 @@ class TestMission : Mission {
 
     override val name: String = "Pierwsza"
     override val id: Int = 1
+    override val lore: List<String> = Arrays.asList("BABA", "SIALA")
 
     override fun onComplete(user: User) {
 
