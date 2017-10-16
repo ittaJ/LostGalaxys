@@ -5,6 +5,12 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 
+/**
+ * Listener when player joins server for the first time
+ * @author Jatti
+ * @version 1.0
+ *
+ */
 class Join : Listener {
 
     @EventHandler

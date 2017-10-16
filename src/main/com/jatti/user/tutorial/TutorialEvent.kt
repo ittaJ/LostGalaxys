@@ -4,6 +4,12 @@ import com.jatti.user.User
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 
+/**
+ * Event which is called when Player starts watching tutorial
+ * @author Jatti
+ * @version 1.0
+ * @param user user who is watching tutorial
+ */
 class TutorialEvent(var user: User) : Event(false) {
 
     private val handlery: HandlerList = HandlerList()

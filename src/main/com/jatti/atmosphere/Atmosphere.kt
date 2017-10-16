@@ -1,5 +1,20 @@
 package com.jatti.atmosphere
 
+/**
+ * Atmosphere for planets, it defines everything which is important on planet (expect mobs) like gravity or temperature
+ * @author Jatti
+ * @version 1.0
+ *
+ * @param name Atmosphere's name
+ *
+ * gravity - gravity on planet
+ * temperature - temperature on planet right now
+ * lowTemperature - the lowest temperature planet with this atmosphere can reach
+ * maxTemperature - the highest temperature planet with this atmosphere can reach
+ * isLife - can mobs spawn on it?
+ * isChangable - can player change it?
+ * changeTime - time to change atmosphere on planet
+ */
 class Atmosphere(var name: String) {
 
     var gravity: Int = 0
@@ -21,6 +36,11 @@ class Atmosphere(var name: String) {
 
     companion object {
 
+        /**
+         * Gets atmosphere with defined name from all atmospheres
+         *
+         * @param name atmosphere's name
+         */
         @JvmStatic
         fun get(name: String): Atmosphere {
 

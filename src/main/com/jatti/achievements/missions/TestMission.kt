@@ -6,7 +6,13 @@ import com.jatti.user.User
 import org.bukkit.ChatColor
 import java.util.*
 
+/**
+ * Mission to test if missions are working
+ * @author Jatti
+ * @version 1.1
+ */
 class TestMission : Mission {
+
 
     override val name: String = "Pierwsza"
     override val id: Int = 1

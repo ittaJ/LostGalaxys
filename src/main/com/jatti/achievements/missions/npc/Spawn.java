@@ -7,6 +7,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Command for creating npcs
+ * @author Jatti
+ * @version 1.0
+ */
 public class Spawn implements CommandExecutor {
 
 

@@ -6,6 +6,12 @@ import org.bukkit.Sound
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 
+/**
+ * Listener for LevelUpEvent
+ * @author Jatti
+ * @version 1.0
+ *
+ */
 class LevelUp : Listener {
 
     @EventHandler

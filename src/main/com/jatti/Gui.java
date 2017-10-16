@@ -14,6 +14,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
+/**
+ * Class for making guis
+ *
+ * @author Jatti
+ * @version 1.1
+ */
 public class Gui {
 
     private static int getFreeSpace(Inventory inv) {
@@ -28,6 +34,10 @@ public class Gui {
 
     }
 
+    /**
+     * Opens Computer's gui
+     * @param user user which will have this gui opened
+     */
     public static void openComputerGui(User user) {
 
         Inventory inv = Bukkit.createInventory(null, 9, Computer.get(user).getName());
@@ -67,6 +77,10 @@ public class Gui {
 
     }
 
+    /**
+     * Open guis with cameras
+     * @param user user which will have this gui opened
+     */
     public static void openCamerasGui(User user) {
 
         Computer c = Computer.get(user);
@@ -89,6 +103,11 @@ public class Gui {
 
     }
 
+    /**
+     * Opens gui for battery
+     * @param user user which will have this gui opened
+     * @param location battery's location
+     */
     public static void openEnergyGui(User user, Location location) {
 
         Battery b = Battery.Companion.get(user, location);

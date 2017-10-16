@@ -12,6 +12,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class for new recipes
+ *
+ * @author Jatti
+ * @version 1.0
+ */
 class Recipes {
 
     private static List<ShapedRecipe> shapedRecipes = new ArrayList<ShapedRecipe>();
@@ -78,6 +84,9 @@ class Recipes {
 
     }
 
+    /**
+     * Registers all recipes in main class
+     */
     static void register() {
 
         addShaped();

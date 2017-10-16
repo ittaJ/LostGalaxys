@@ -16,6 +16,12 @@ import com.jatti.user.LevelUp;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * Main plugin's class
+ *
+ * @author Jatti
+ * @version 1.1
+ */
 public class LostGalaxy extends JavaPlugin {
 
     private static LostGalaxy inst;

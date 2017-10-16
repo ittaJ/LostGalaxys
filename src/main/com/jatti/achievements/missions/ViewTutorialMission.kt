@@ -7,11 +7,17 @@ import com.jatti.user.User
 import org.bukkit.ChatColor
 import java.util.*
 
+/**
+ * Mission to view tutorial
+ * @author Jatti
+ * @version 1.1
+ */
 class ViewTutorialMission : Mission {
 
     override val name: String = "Zobacz Samouczek"
     override val id: Int = 2
     override val lore: List<String> = Arrays.asList("Zobacz samouczek", "No zobacz noo")
+
     override fun onComplete(user: User) {
 
         if (user.missions!!.contains(id)) {

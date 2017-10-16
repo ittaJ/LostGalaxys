@@ -10,9 +10,18 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractAtEntityEvent
 
+/**
+ * Listener when player clicks NPC
+ * @author Jatti
+ * @version 1.0
+ */
 class NpcClick : Listener {
 
     companion object {
+        /**
+         * List of all missions that you can get from NPC
+         * @return ArrayList<Mission>
+         */
         @JvmStatic
         fun getMissions(): ArrayList<Mission> {
             val missions: ArrayList<Mission> = ArrayList()
@@ -28,7 +37,7 @@ class NpcClick : Listener {
 
             for (n in NpcUtils.getNpcs()) {
 
-                if (Location(Bukkit.getWorld("world"), n.location.x, n.location.y + 1, n.location.z) == evt.rightClicked.location) {
+                if (Location(Bukkit.getWorld("world"), n.location.x, n.location.y + 2, n.location.z) == evt.rightClicked.location) {
 
                     val u: User = User.get(evt.player.name)
 

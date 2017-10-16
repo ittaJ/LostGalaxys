@@ -3,6 +3,7 @@ package com.jatti.planet;
 import com.jatti.atmosphere.Atmosphere;
 import com.jatti.atmosphere.AtmosphereChangeEvent;
 import com.jatti.entity.Entity;
+import com.jatti.user.User;
 import org.bukkit.Bukkit;
 
 import java.util.List;
@@ -17,7 +18,6 @@ public class Planet {
 
     public Planet(String name) {
         this.name = name;
-        shuffleEntities();
         PlanetUtils.addPlanet(this);
     }
 
@@ -29,7 +29,7 @@ public class Planet {
 
         }
 
-        return null;
+        return new Planet(name);
 
     }
 
@@ -70,6 +70,10 @@ public class Planet {
     }
 
     public void shuffleEntities() {
+
+    }
+
+    public void onCreate(){
 
     }
 

@@ -6,6 +6,11 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 
+/**
+ * Listener when player clicks battery
+ * @author Jatti
+ * @version 1.0
+ */
 class BatteryClick : Listener {
 
     @EventHandler

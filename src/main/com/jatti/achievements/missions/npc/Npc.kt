@@ -6,6 +6,13 @@ import org.bukkit.inventory.MerchantRecipe
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 
+/**
+ * NPC which gives mission
+ * @author Jatti
+ * @version 1.0
+ * @param id mission's ID
+ * @param location where npc will spawn
+ */
 class Npc(val id: Int, val location: Location) {
 
 
@@ -13,6 +20,9 @@ class Npc(val id: Int, val location: Location) {
         NpcUtils.addNpc(this)
     }
 
+    /**
+     * Spawns npc in specified location
+     */
     fun spawn() {
         val z: Villager = location.world.spawn(location, Villager::class.java)
         z.setAI(false)

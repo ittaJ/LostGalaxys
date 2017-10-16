@@ -3,24 +3,38 @@ package com.jatti.atmosphere;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utils for Atmosphere
+ */
 public class AtmosphereUtils {
 
     private static List<Atmosphere> atmospheres = new ArrayList<Atmosphere>();
 
-
+    /**
+     * Gets list of all atmospheres
+     * @return List<Atmosphere>
+     */
     public static List<Atmosphere> getAtmospheres() {
         if (atmospheres == null) atmospheres = new ArrayList<Atmosphere>();
         return atmospheres;
     }
 
-    public static void addAtmosphere(Atmosphere a) {
+    /**
+     * Adds atmosphere to list
+     * @param atmosphere atmosphere to add
+     */
+    public static void addAtmosphere(Atmosphere atmosphere) {
 
-        if (!atmospheres.contains(a)) atmospheres.add(a);
+        if (!atmospheres.contains(atmosphere)) atmospheres.add(atmosphere);
 
     }
 
-    public static void removeAtmosphere(Atmosphere a) {
-        if (atmospheres.contains(a)) atmospheres.remove(a);
+    /**
+     * Removes atmosphere from list
+     * @param atmosphere atmosphere to remove
+     */
+    public static void removeAtmosphere(Atmosphere atmosphere) {
+        if (atmospheres.contains(atmosphere)) atmospheres.remove(atmosphere);
     }
 
 }

@@ -9,6 +9,12 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockPlaceEvent
 
+/**
+ * Listener when player places teleporter
+ *
+ * @author Jatti
+ * @version 1.0
+ */
 class TeleporterPlace : Listener {
 
 
