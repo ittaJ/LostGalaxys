@@ -10,6 +10,11 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.HashMap;
 
+/**
+ * Listener when player interacts with computer's gui
+ * @author Jatti
+ * @version 1.0
+ */
 public class ComputerGuiInteract implements Listener {
 
     public static HashMap<User, Boolean> changingName = new HashMap<User, Boolean>();

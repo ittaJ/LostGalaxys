@@ -2,6 +2,7 @@ package com.jatti.computer;
 
 import com.jatti.Gui;
 import com.jatti.camera.CameraInteract;
+import com.jatti.user.User;
 import org.bukkit.*;
 import org.bukkit.Note.Tone;
 import org.bukkit.block.Skull;
@@ -11,6 +12,11 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+/**
+ * Listener when player places computer or clicks on it
+ * @author Jatti
+ * @version 1.0
+ */
 public class ComputerInteract implements Listener {
 
     @SuppressWarnings("deprecation")
@@ -22,13 +28,13 @@ public class ComputerInteract implements Listener {
 
             if (s.getOwner().equals("Servers")) {
                 User u = User.get(evt.getPlayer().getName());
-                if (!u.hasComputer()) {
+                if (!u.getHasComputer()) {
 
                     Computer c = Computer.get(u);
                     c.setWhere(evt.getBlockPlaced().getLocation());
                     c.setEnergy(60);
                     c.setName("Komputer");
-                    u.hasComputer(true);
+                    u.setHasComputer(true);
 
 
                 } else {

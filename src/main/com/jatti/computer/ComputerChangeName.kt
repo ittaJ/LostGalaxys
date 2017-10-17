@@ -6,6 +6,11 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.AsyncPlayerChatEvent
 
+/**
+ * Listener when player is changing computer's name
+ * @author Jatti
+ * @version 1.0
+ */
 class ComputerChangeName : Listener {
 
     @EventHandler

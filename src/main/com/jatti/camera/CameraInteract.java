@@ -1,6 +1,7 @@
 package com.jatti.camera;
 
 import com.jatti.computer.Computer;
+import com.jatti.user.User;
 import org.bukkit.ChatColor;
 import org.bukkit.Instrument;
 import org.bukkit.Material;
@@ -17,6 +18,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.HashMap;
 
+/**
+ * Listener when you place camera on ground or when you click on it
+ * @author Jatti
+ * @version 1.0
+ */
 public class CameraInteract implements Listener {
 
     public static HashMap<User, Camera> isClicked = new HashMap<User, Camera>();
@@ -34,7 +40,7 @@ public class CameraInteract implements Listener {
                 User u = User.get(evt.getPlayer().getName());
 
 
-                if (!u.hasComputer()) {
+                if (!u.getHasComputer()) {
 
                     evt.getPlayer().sendMessage(ChatColor.DARK_RED + "Nie mozesz postawic kamery jesli nie masz komputera!");
                     evt.setCancelled(true);
@@ -55,10 +61,7 @@ public class CameraInteract implements Listener {
                         camera.setWhere(evt.getBlockPlaced().getLocation());
                         ArmorStand as = evt.getBlockPlaced().getWorld().spawn(evt.getBlockPlaced().getLocation(), ArmorStand.class);
                         as.setVisible(false);
-                        as.setGravity(false);
-                        as.setGliding(false);
-                        as.setCollidable(false);
-                        as.setInvulnerable(false);
+                        as.setAI(false);
                         camera.setArmorStand((CraftArmorStand) as);
                     }
                 }

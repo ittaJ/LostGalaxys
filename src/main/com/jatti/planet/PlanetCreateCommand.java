@@ -12,6 +12,11 @@ import org.bukkit.command.CommandSender;
  */
 public class PlanetCreateCommand {
 
+    /**
+     * Method for creating planets
+     * @param snd command sender
+     * @param args command's arguments
+     */
     public void onCreate(CommandSender snd, String[] args) {
 
         User u = User.get(snd.getName());

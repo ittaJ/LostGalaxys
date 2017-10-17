@@ -1,12 +1,18 @@
 package com.jatti.camera;
 
 import com.jatti.computer.Computer;
+import com.jatti.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+/**
+ * Listener when player clicks in camera's gui
+ * @author Jatti
+ * @version 1.0
+ */
 public class CameraGuiInteract implements Listener {
 
     @EventHandler
