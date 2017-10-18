@@ -64,43 +64,73 @@ public class Planet {
     }
 
     /**
-     * Gets name
-     * @return owner 
+     * Gets owner
+     * @return User
      */
     public User getOwner() {
         return owner;
     }
 
+    /**
+     * Sets owner
+     * @param owner planet's owner
+     */
     public void setOwner(User owner) {
         this.owner = owner;
     }
 
+    /**
+     * Gets atmosphere
+     * @return Atmosphere
+     */
     public Atmosphere getAtmosphere() {
         return atmosphere;
     }
 
+    /**
+     * Sets atmosphere
+     * @param atmosphere planet's atmosphere
+     */
     public void setAtmosphere(Atmosphere atmosphere) {
         this.atmosphere = atmosphere;
     }
 
+    /**
+     * Changes atmosphere on planet
+     * @param newAtmosphere new atmosphere on planet
+     */
     public void changeAtmosphere(Atmosphere newAtmosphere) {
         Bukkit.getPluginManager().callEvent(new AtmosphereChangeEvent(this, atmosphere, newAtmosphere));
     }
 
+    /**
+     * Gets entities which can spawn on planet
+     * @return List<Entity>
+     */
     public List<Entity> getEntities() {
         return entities;
     }
 
+    /**
+     * Sets entities which can spawn on planet
+     * @param entities list of entities which can spawn on planet
+     */
     public void setEntities(List<Entity> entities) {
         this.entities = entities;
     }
 
+    /**
+     * Shuffles entities for planet
+     */
     public void shuffleEntities() {
 
     }
 
+    /**
+     * Method when planet is creating
+     */
     public void onCreate(){
-
+        shuffleEntities();
     }
 
 }

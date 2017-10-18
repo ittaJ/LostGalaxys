@@ -4,7 +4,15 @@ import com.jatti.user.User
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 
-class MEntityHitEvent(var target: User, var hit: Entity) : Event(false) {
+/**
+ * Event which is called when entity hits player
+ * @author Jatti
+ * @version 1.0
+ *
+ * @param target user which is entity's target
+ * @param hit entity that hit player
+ */
+class MEntityHitEvent(val target: User, val hit: Entity) : Event(false) {
 
     private val handlery: HandlerList = HandlerList()
 

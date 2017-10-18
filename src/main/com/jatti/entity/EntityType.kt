@@ -1,6 +1,14 @@
 package com.jatti.entity
 
-
+/**
+ * Types of entity
+ * @author Jatti
+ * @version 1.0
+ *
+ * @param namee type's name
+ * @param type type from Bukkit
+ * @see org.bukkit.entity.EntityType
+ */
 enum class EntityType(val namee: String, val type: org.bukkit.entity.EntityType) {
 
     //TODO Add more types
@@ -11,6 +19,9 @@ enum class EntityType(val namee: String, val type: org.bukkit.entity.EntityType)
     SUCKER("Pijawka", org.bukkit.entity.EntityType.SLIME),
     DOG("Pies", org.bukkit.entity.EntityType.WOLF);
 
+    /**
+     * Empty constructor for random type or for not working types
+     */
     constructor()
 
 }
