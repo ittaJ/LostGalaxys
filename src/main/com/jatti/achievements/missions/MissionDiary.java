@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Class with missions diary for players
  * @author Jatti
- * @version 1.0
+ * @version 1.1
  */
 public class MissionDiary {
 
@@ -54,7 +54,7 @@ public class MissionDiary {
 
                     bm.addPage(ChatColor.DARK_GREEN + "Misja nr. " + ChatColor.GOLD + m.getId() + "\n"
                     + ChatColor.GREEN + ",," + m.getName() + ",," + "\n"
-                    + m.getLore());
+                    + ChatColor.GRAY + m.getLore());
 
                 }
 

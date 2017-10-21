@@ -10,6 +10,7 @@ import com.jatti.computer.ComputerChangeName;
 import com.jatti.computer.ComputerGuiInteract;
 import com.jatti.computer.ComputerInteract;
 import com.jatti.entity.EntityCreate;
+import com.jatti.planet.PlanetCommand;
 import com.jatti.teleporter.TeleporterPlace;
 import com.jatti.user.Join;
 import com.jatti.user.LevelUp;
@@ -47,6 +48,7 @@ public class LostGalaxy extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new TeleporterPlace(), this);
         Bukkit.getPluginManager().registerEvents(new NpcClick(), this);
         getCommand("spawnnpc").setExecutor(new Spawn());
+        getCommand("p").setExecutor(new PlanetCommand());
     }
 
     @Override

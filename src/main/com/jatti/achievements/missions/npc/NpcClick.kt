@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerInteractAtEntityEvent
 /**
  * Listener when player clicks NPC
  * @author Jatti
- * @version 1.0
+ * @version 1.1
  */
 class NpcClick : Listener {
 
@@ -37,10 +37,9 @@ class NpcClick : Listener {
 
             for (n in NpcUtils.getNpcs()) {
 
-                if (Location(Bukkit.getWorld("world"), n.location.x, n.location.y + 2, n.location.z) == evt.rightClicked.location) {
+                if (n.entityId == evt.rightClicked.entityId) {
 
                     val u: User = User.get(evt.player.name)
-
 
                     for (mission in getMissions()) {
 

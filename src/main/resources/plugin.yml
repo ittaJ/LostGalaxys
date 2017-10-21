@@ -5,3 +5,4 @@ authors: [Jatti]
 
 commands:
   spawnnpc:
+  p:

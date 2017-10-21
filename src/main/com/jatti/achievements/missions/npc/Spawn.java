@@ -1,6 +1,8 @@
 package com.jatti.achievements.missions.npc;
 
 import com.jatti.achievements.missions.Mission;
+import com.sun.deploy.util.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,28 +17,37 @@ import org.bukkit.entity.Player;
 public class Spawn implements CommandExecutor {
 
 
+    //TODO
     public boolean onCommand(CommandSender snd, Command cmd, String l, String[] args) {
 
         if (cmd.getName().equalsIgnoreCase("spawnnpc")) {
             Player p = (Player) snd;
             if (args.length == 1) {
 
-                int id = Integer.parseInt(args[0]);
+                if (NumberUtils.isNumber(args[0])) {
 
-                for (Mission m : NpcClick.getMissions()) {
+                    int id = Integer.parseInt(args[0]);
 
-                    if (m.getId() == id) {
+                    for (Mission m : NpcClick.getMissions()) {
 
-                        Npc n = new Npc(id, p.getLocation());
+                        if (m.getId() == id) {
 
-                        n.spawn();
-                        p.sendMessage(ChatColor.GREEN + "Stworzono NPC z misja o ID " + id);
-                    } else {
-                        p.sendMessage(ChatColor.RED + "Nie ma takiej misji!");
+                            Npc n = new Npc(id, p.getLocation());
+
+                            n.spawn();
+                            p.sendMessage(ChatColor.GREEN + "Stworzono NPC z misja o ID " + id);
+
+                        } else {
+
+                            p.sendMessage(ChatColor.RED + "Nie ma takiej misji!");
+                        }
                     }
+                }else{
+
+                    p.sendMessage(ChatColor.RED + "Nie ma takiej misji!");
+
                 }
             }
-
         }
 
         return true;
