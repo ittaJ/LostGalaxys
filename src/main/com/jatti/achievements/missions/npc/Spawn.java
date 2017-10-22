@@ -16,8 +16,6 @@ import org.bukkit.entity.Player;
  */
 public class Spawn implements CommandExecutor {
 
-
-    //TODO
     public boolean onCommand(CommandSender snd, Command cmd, String l, String[] args) {
 
         if (cmd.getName().equalsIgnoreCase("spawnnpc")) {

@@ -40,7 +40,6 @@ public class MissionDiary {
         bm.setDisplayName(ChatColor.GRAY + "Dziennik Misji");
         bm.setLore(Arrays.asList(ChatColor.AQUA + "Dziennik z twoimi misjami", ChatColor.AQUA + "Kliknij by otworzyc"));
 
-        //TODO Make it better
         for(int i=0; i<user.getMissions().size(); i++){
 
             for(int ii=0; ii<getAllMissions().size(); i++){

@@ -8,18 +8,19 @@ import org.bukkit.Location
 /**
  * Battery machine
  * @author Jatti
- * @version 1.1
+ * @version 1.2
  *
  * @param owner User which owns this machine
  *
  * maxEnergy - max energy which can be in this battery
- * energyUsage- usage of energy
+ * energyUsage - usage of energy
+ * poweredMachines - machines powered by this battery
  */
 class Battery(owner: User) : Machine(owner, BatteryUtils.getBatteriesForUser(owner).size + 1) {
 
-    //TODO add machines list powered by this battery
     var maxEnergy: Int = 100
     var energyUsage: Int = 0
+    var poweredMachines: MutableList<Machine>? = null
 
     init {
 

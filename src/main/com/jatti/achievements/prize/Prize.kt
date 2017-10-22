@@ -65,10 +65,15 @@ class PrizeBuilder {
         return this
     }
 
+    /**
+     * Plays sound when user gets Prize
+     * @param sound sound to play
+     */
     fun withSound(sound: Sound): PrizeBuilder {
         p.sound = sound
         return this
     }
+
     /**
      * definies user which will get prize (MUST HAVE)
      * @param user user which will get prize

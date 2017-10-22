@@ -1,5 +1,7 @@
 package com.jatti;
 
+import com.jatti.achievements.AchievementOpenCommand;
+import com.jatti.achievements.missions.MissionDiaryGetCommand;
 import com.jatti.achievements.missions.npc.NpcClick;
 import com.jatti.achievements.missions.npc.Spawn;
 import com.jatti.atmosphere.AtmosphereChange;
@@ -49,6 +51,8 @@ public class LostGalaxy extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new NpcClick(), this);
         getCommand("spawnnpc").setExecutor(new Spawn());
         getCommand("p").setExecutor(new PlanetCommand());
+        getCommand("dziennik").setExecutor(new MissionDiaryGetCommand());
+        getCommand("osiagniecia").setExecutor(new AchievementOpenCommand());
     }
 
     @Override

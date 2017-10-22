@@ -1,5 +1,6 @@
 package com.jatti;
 
+import com.jatti.achievements.Achievement;
 import com.jatti.battery.Battery;
 import com.jatti.camera.Camera;
 import com.jatti.computer.Computer;
@@ -13,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Class for making guis
@@ -32,6 +34,17 @@ public class Gui {
         }
         return 0;
 
+    }
+
+    private static int getInventorySize(int amount) {
+
+        while (amount % 8 !=0) {
+
+            amount++;
+
+        }
+
+        return amount;
     }
 
     /**
@@ -108,6 +121,7 @@ public class Gui {
      * @param user user which will have this gui opened
      * @param location battery's location
      */
+    @Deprecated
     public static void openEnergyGui(User user, Location location) {
 
         Battery b = Battery.Companion.get(user, location);
@@ -115,14 +129,51 @@ public class Gui {
         Bukkit.createInventory(null, 0, ChatColor.DARK_GREEN + "Energia w tej baterii to: " + ChatColor.GOLD + b.getEnergy());
     }
 
-    public static void openAddEnergyGui(User user) {
-
-    }
-
+    /**
+     * Opens gui with achievements
+     * @param user user which will have this gui opened
+     */
     public static void openAchievementGui(User user) {
 
-        //TODO
+        List<Achievement> achievements = user.getAchievements();
+
+        Inventory inv = Bukkit.createInventory(null, getInventorySize(achievements.size()+1), ChatColor.DARK_GREEN + "Osiagniecia");
+
+        for(Achievement a : achievements){
+
+            switch(a.getDifficulty()){
+
+                case EASY:
+                    ItemStack is = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+                    ItemMeta m = is.getItemMeta();
+                    m.setDisplayName(ChatColor.GREEN + a.getName());
+                    is.setItemMeta(m);
+                    inv.setItem(getFreeSpace(inv), is);
+                    break;
+
+                case MEDIUM:
+                    ItemStack is1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 4);
+                    ItemMeta m1 = is1.getItemMeta();
+                    m1.setDisplayName(ChatColor.YELLOW + a.getName());
+                    is1.setItemMeta(m1);
+                    inv.setItem(getFreeSpace(inv), is1);
+                    break;
+
+                case HARD:
+                    ItemStack is2 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
+                    ItemMeta m2 = is2.getItemMeta();
+                    m2.setDisplayName(ChatColor.RED + a.getName());
+                    is2.setItemMeta(m2);
+                    inv.setItem(getFreeSpace(inv), is2);
+                    break;
+
+            }
+        }
+
+        user.getPlayer().closeInventory();
+        user.getPlayer().openInventory(inv);
 
     }
 
 }
+
