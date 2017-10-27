@@ -1,7 +1,6 @@
 package com.jatti.achievements.missions.npc;
 
 import com.jatti.achievements.missions.Mission;
-import com.sun.deploy.util.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

@@ -1,10 +1,7 @@
 package com.jatti.achievements.missions.npc
 
 import com.jatti.achievements.missions.Mission
-import com.jatti.achievements.missions.TestMission
 import com.jatti.user.User
-import org.bukkit.Bukkit
-import org.bukkit.Location
 import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -13,7 +10,7 @@ import org.bukkit.event.player.PlayerInteractAtEntityEvent
 /**
  * Listener when player clicks NPC
  * @author Jatti
- * @version 1.1
+ * @version 1.2
  */
 class NpcClick : Listener {
 
@@ -24,9 +21,18 @@ class NpcClick : Listener {
          */
         @JvmStatic
         fun getMissions(): ArrayList<Mission> {
-            val missions: ArrayList<Mission> = ArrayList()
-            missions.add(TestMission())
-            return missions
+            return ArrayList()
+        }
+
+        /**
+         * Method for adding mission to mission's list
+         * @param mission mission to add
+         */
+        @JvmStatic
+        fun addMission(mission:Mission){
+            if(!getMissions().contains(mission)){
+                getMissions().add(mission)
+            }
         }
     }
 

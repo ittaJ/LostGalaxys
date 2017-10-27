@@ -1,5 +1,7 @@
 package com.jatti.user
 
+import com.jatti.sites.Site
+import com.jatti.sites.SiteType
 import com.jatti.achievements.Achievement
 import com.jatti.user.ranks.Rank
 import com.jatti.user.tutorial.TutorialEvent
@@ -17,7 +19,8 @@ import java.util.ArrayList
  * @version 1.0
  * @param name user's name
  * */
-open class User(var name:String){
+
+ class User(var name:String){
 
     var gold:Int = 0
     var hasComputer:Boolean = false
@@ -166,6 +169,8 @@ open class User(var name:String){
      * @param id mission's ID
      *
      */
+
+    @Site(SiteType.SPONGE, true)
     fun addMission(id: Int) {
         if (!missions!!.contains(id)) missions!!.add(id)
     }
