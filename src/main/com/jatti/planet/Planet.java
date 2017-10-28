@@ -129,8 +129,10 @@ public class Planet {
     /**
      * Method when planet is creating
      */
+
     public void onCreate(){
         shuffleEntities();
+
     }
 
 }

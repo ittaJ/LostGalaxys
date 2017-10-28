@@ -11,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author Jatti
  * @version 1.1
  */
+
 public class LostGalaxy extends JavaPlugin {
 
     private static LostGalaxy inst;

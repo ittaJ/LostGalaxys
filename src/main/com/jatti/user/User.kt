@@ -1,7 +1,5 @@
 package com.jatti.user
 
-import com.jatti.sites.Site
-import com.jatti.sites.SiteType
 import com.jatti.achievements.Achievement
 import com.jatti.user.ranks.Rank
 import com.jatti.user.tutorial.TutorialEvent
@@ -11,12 +9,13 @@ import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer
 import org.bukkit.entity.Player
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Represents player as user
  * @author Jatti
  * @version 1.0
+ *
  * @param name user's name
  * */
 
@@ -67,6 +66,7 @@ import java.util.ArrayList
     fun getPlayer():Player{
         return Bukkit.getPlayer(name)
     }
+
 
     /**
      * Sends ActionBar for user
@@ -170,7 +170,6 @@ import java.util.ArrayList
      *
      */
 
-    @Site(SiteType.SPONGE, true)
     fun addMission(id: Int) {
         if (!missions!!.contains(id)) missions!!.add(id)
     }

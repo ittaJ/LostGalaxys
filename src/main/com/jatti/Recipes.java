@@ -66,8 +66,7 @@ class Recipes {
         batteryMeta.setLore(Arrays.asList(ChatColor.YELLOW + "Poloz jak blok",
                 ChatColor.YELLOW + "Slozy do zasilania innych rzeczy",
                 ChatColor.YELLOW + "Czerpie energie z " + ChatColor.DARK_AQUA + "Bialych Krysztalow",
-                ChatColor.YELLOW + "Mozna do niej podlaczyc:",
-                ChatColor.DARK_GREEN + "-NIC")); //TODO add more machines
+                ChatColor.YELLOW + "Mozna do niej podlaczyc wszystkie maszyny"));
         battery.setItemMeta(batteryMeta);
 
         ShapedRecipe batteryRecipe = new ShapedRecipe(battery);

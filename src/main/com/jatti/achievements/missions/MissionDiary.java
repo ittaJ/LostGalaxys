@@ -21,11 +21,13 @@ public class MissionDiary {
 
     private static List<Mission> getAllMissions(){
 
-        List<Mission> missions = new ArrayList<Mission>();
-        missions.add(new TestMission());
-        missions.add(new ViewTutorialMission());
+        return new ArrayList<Mission>();
+    }
 
-        return missions;
+    private static void addMission(Mission mission){
+        if(!getAllMissions().contains(mission)){
+            getAllMissions().add(mission);
+        }
     }
 
     /**
