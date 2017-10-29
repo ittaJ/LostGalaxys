@@ -1,20 +1,20 @@
 package com.jatti;
 
-import com.jatti.achievements.Achievement;
-import com.jatti.battery.Battery;
-import com.jatti.camera.Camera;
-import com.jatti.computer.Computer;
-import com.jatti.user.User;
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
-import java.util.List;
+import com.jatti.achievements.Achievement;
+import com.jatti.battery.Battery;
+import com.jatti.camera.Camera;
+import com.jatti.computer.Computer;
+import com.jatti.user.User;
 
 /**
  * Class for making guis
@@ -24,156 +24,105 @@ import java.util.List;
  */
 public class Gui {
 
-    private static int getFreeSpace(Inventory inv) {
+    private static final ItemStack nameItem;
+    private static final ItemStack cameraItem;
+    private static final ItemStack energyItem;
+    private static final ItemStack offItem;
 
-        for (int i = 0; i < inv.getSize(); i++) {
+    static {
+        nameItem = ItemBuilder.fromScratch().type(Material.NAME_TAG).name(ChatColor.DARK_GREEN + "Zmien nazwe")
+                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zmienic nazwe komputera")).build();
 
-            while (inv.getItem(i) == null) {
-                return i;
-            }
-        }
-        return 0;
+        cameraItem = ItemBuilder.fromScratch().type(Material.BOOK).name(ChatColor.DARK_GREEN + "Kamery")
+                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zobaczyc podglad kamer")).build();
 
-    }
+        energyItem = ItemBuilder.fromScratch().type(Material.REDSTONE).name(ChatColor.DARK_GREEN + "Dodaj energie")
+                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by dodac energie do komputera")).build();
 
-    private static int getInventorySize(int amount) {
+        offItem = ItemBuilder.fromScratch().type(Material.REDSTONE_BLOCK).name(ChatColor.DARK_RED + "Wylacz")
+                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by wylaczyc komputer")).build();
 
-        while (amount % 8 !=0) {
-
-            amount++;
-
-        }
-
-        return amount;
     }
 
     /**
      * Opens Computer's gui
-     * @param user user which will have this gui opened
+     * 
+     * @param user
+     *            user which will have this gui opened
      */
     public static void openComputerGui(User user) {
+        Inventory computerGUI = Bukkit.createInventory(null, 9, Computer.get(user).getName());
+        computerGUI.setItem(0, nameItem);
+        computerGUI.setItem(1, cameraItem);
+        computerGUI.setItem(2, energyItem);
+        computerGUI.setItem(8, offItem);
 
-        Inventory inv = Bukkit.createInventory(null, 9, Computer.get(user).getName());
-
-        ItemStack disable = new ItemStack(Material.REDSTONE_BLOCK, 1);
-        ItemMeta mdisable = disable.getItemMeta();
-        mdisable.setDisplayName(ChatColor.DARK_RED + "Wylacz");
-        mdisable.setLore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by wylaczyc komputer"));
-        disable.setItemMeta(mdisable);
-
-        ItemStack rename = new ItemStack(Material.NAME_TAG, 1);
-        ItemMeta mrename = rename.getItemMeta();
-        mrename.setDisplayName(ChatColor.DARK_GREEN + "Zmien nazwe");
-        mrename.setLore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zmienic nazwe komputera"));
-        rename.setItemMeta(mrename);
-
-        ItemStack cameras = new ItemStack(Material.BOOK, 1);
-        ItemMeta mcameras = cameras.getItemMeta();
-        mcameras.setDisplayName(ChatColor.DARK_GREEN + "Kamery");
-        mcameras.setLore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zobaczyc podglad kamer"));
-        cameras.setItemMeta(mcameras);
-
-        ItemStack energy = new ItemStack(Material.REDSTONE, 1);
-        ItemMeta menergy = energy.getItemMeta();
-        menergy.setDisplayName(ChatColor.DARK_GREEN + "Dodaj energie");
-        menergy.setLore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by dodac energie do komputera"));
-        energy.setItemMeta(menergy);
-
-
-        inv.setItem(0, rename);
-        inv.setItem(1, cameras);
-        inv.setItem(2, energy);
-        inv.setItem(8, disable);
-
-        user.getPlayer().openInventory(inv);
-
-
+        user.getPlayer().openInventory(computerGUI);
     }
 
     /**
      * Open guis with cameras
-     * @param user user which will have this gui opened
+     * 
+     * @param user
+     *            user which will have this gui opened
      */
     public static void openCamerasGui(User user) {
-
-        Computer c = Computer.get(user);
-
+        List<Camera> cameras = Computer.get(user).getCameras();
         Inventory inv = Bukkit.createInventory(null, 9, ChatColor.GOLD + "Kamery");
 
-        for (Camera cam : c.getCameras()) {
-
-            ItemStack is = new ItemStack(Material.BUCKET, 1);
-            ItemMeta m = is.getItemMeta();
-            m.setDisplayName(ChatColor.AQUA + "" + cam.getValue());
-            is.setItemMeta(m);
-
-            inv.setItem(getFreeSpace(inv), is);
+        for (int i = 0; i < 9 && i < cameras.size(); i++) {
+            Camera c = cameras.get(i);
+            inv.setItem(i, ItemBuilder.fromScratch().type(Material.BUCKET).name(ChatColor.AQUA + "" + c.getValue()).build());
 
         }
 
         user.getPlayer().openInventory(inv);
-
-
     }
 
     /**
      * Opens gui for battery
-     * @param user user which will have this gui opened
-     * @param location battery's location
+     * 
+     * @param user
+     *            user which will have this gui opened
+     * @param location
+     *            battery's location
      */
     @Deprecated
     public static void openEnergyGui(User user, Location location) {
-
         Battery b = Battery.Companion.get(user, location);
-
         Bukkit.createInventory(null, 0, ChatColor.DARK_GREEN + "Energia w tej baterii to: " + ChatColor.GOLD + b.getEnergy());
     }
 
     /**
      * Opens gui with achievements
-     * @param user user which will have this gui opened
+     * 
+     * @param user
+     *            user which will have this gui opened
      */
     public static void openAchievementGui(User user) {
-
         List<Achievement> achievements = user.getAchievements();
+        Inventory inv = Bukkit.createInventory(null, achievements.size() / 9 * 9 + 9, ChatColor.DARK_GREEN + "Osiagniecia");
 
-        Inventory inv = Bukkit.createInventory(null, getInventorySize(achievements.size()+1), ChatColor.DARK_GREEN + "Osiagniecia");
+        for (Achievement a : achievements) {
+            switch (a.getDifficulty()) {
+            case EASY:
+                inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 5)
+                                .name(ChatColor.GREEN + a.getName()).build());
+                break;
 
-        for(Achievement a : achievements){
+            case MEDIUM:
+                inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 4)
+                                .name(ChatColor.YELLOW + a.getName()).build());
+                break;
 
-            switch(a.getDifficulty()){
-
-                case EASY:
-                    ItemStack is = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
-                    ItemMeta m = is.getItemMeta();
-                    m.setDisplayName(ChatColor.GREEN + a.getName());
-                    is.setItemMeta(m);
-                    inv.setItem(getFreeSpace(inv), is);
-                    break;
-
-                case MEDIUM:
-                    ItemStack is1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 4);
-                    ItemMeta m1 = is1.getItemMeta();
-                    m1.setDisplayName(ChatColor.YELLOW + a.getName());
-                    is1.setItemMeta(m1);
-                    inv.setItem(getFreeSpace(inv), is1);
-                    break;
-
-                case HARD:
-                    ItemStack is2 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
-                    ItemMeta m2 = is2.getItemMeta();
-                    m2.setDisplayName(ChatColor.RED + a.getName());
-                    is2.setItemMeta(m2);
-                    inv.setItem(getFreeSpace(inv), is2);
-                    break;
-
+            case HARD:
+                inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 14)
+                                .name(ChatColor.RED + a.getName()).build());
+                break;
             }
         }
 
         user.getPlayer().closeInventory();
         user.getPlayer().openInventory(inv);
-
     }
-
 }
-

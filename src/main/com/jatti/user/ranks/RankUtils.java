@@ -5,35 +5,44 @@ import java.util.List;
 
 /**
  * Utils for Rank
+ * 
  * @author Jatti
  * @version 1.0
  */
 public class RankUtils {
 
-    private static List<Rank> ranks = new ArrayList<Rank>();
+    private static final List<Rank> ranks = new ArrayList<Rank>();
 
     /**
      * Gets list of ranks
+     * 
      * @return List<Rank>
      */
     public static List<Rank> getRanks() {
-        if (ranks == null) ranks = new ArrayList<Rank>();
         return ranks;
     }
 
     /**
      * Adds rank to list
-     * @param rank which will be added
+     * 
+     * @param rank
+     *            which will be added
      */
     public static void addRank(Rank rank) {
-        if (!ranks.contains(rank)) ranks.add(rank);
+        if (!ranks.contains(rank)) {
+            ranks.add(rank);
+        }
     }
 
     /**
      * Removes rank from list
-     * @param rank which will be removed
+     * 
+     * @param rank
+     *            which will be removed
      */
     public static void removeRank(Rank rank) {
-        if (ranks.contains(rank)) ranks.remove(rank);
+        if (ranks.contains(rank)) {
+            ranks.remove(rank);
+        }
     }
 }

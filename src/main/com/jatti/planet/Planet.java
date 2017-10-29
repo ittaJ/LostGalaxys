@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Class for Planets
+ * 
  * @author Jatti
  * @version 1.0
  */
@@ -19,11 +20,13 @@ public class Planet {
     private Atmosphere atmosphere;
     private User owner;
     private List<Entity> entities;
-    //TODO make it working
+    // TODO make it work
 
     /**
      * Creates new planet
-     * @param name planet's name
+     * 
+     * @param name
+     *            planet's name
      */
     public Planet(String name) {
         this.name = name;
@@ -32,23 +35,24 @@ public class Planet {
 
     /**
      * Gets planet from planets' list
-     * @param name planet's name
+     * 
+     * @param name
+     *            planet's name
      * @return Planet
      */
     public static Planet get(String name) {
-
         for (Planet p : PlanetUtils.getPlanets()) {
-
-            if (p.getName().equals(name)) return p;
-
+            if (p.getName().equals(name)) {
+                return p;
+            }
         }
 
         return new Planet(name);
-
     }
 
     /**
      * Gets name
+     * 
      * @return String
      */
     public String getName() {
@@ -57,7 +61,9 @@ public class Planet {
 
     /**
      * Sets name
-     * @param name planet's name
+     * 
+     * @param name
+     *            planet's name
      */
     public void setName(String name) {
         this.name = name;
@@ -65,6 +71,7 @@ public class Planet {
 
     /**
      * Gets owner
+     * 
      * @return User
      */
     public User getOwner() {
@@ -73,7 +80,9 @@ public class Planet {
 
     /**
      * Sets owner
-     * @param owner planet's owner
+     * 
+     * @param owner
+     *            planet's owner
      */
     public void setOwner(User owner) {
         this.owner = owner;
@@ -81,6 +90,7 @@ public class Planet {
 
     /**
      * Gets atmosphere
+     * 
      * @return Atmosphere
      */
     public Atmosphere getAtmosphere() {
@@ -89,7 +99,9 @@ public class Planet {
 
     /**
      * Sets atmosphere
-     * @param atmosphere planet's atmosphere
+     * 
+     * @param atmosphere
+     *            planet's atmosphere
      */
     public void setAtmosphere(Atmosphere atmosphere) {
         this.atmosphere = atmosphere;
@@ -97,7 +109,9 @@ public class Planet {
 
     /**
      * Changes atmosphere on planet
-     * @param newAtmosphere new atmosphere on planet
+     * 
+     * @param newAtmosphere
+     *            new atmosphere on planet
      */
     public void changeAtmosphere(Atmosphere newAtmosphere) {
         Bukkit.getPluginManager().callEvent(new AtmosphereChangeEvent(this, atmosphere, newAtmosphere));
@@ -105,6 +119,7 @@ public class Planet {
 
     /**
      * Gets entities which can spawn on planet
+     * 
      * @return List<Entity>
      */
     public List<Entity> getEntities() {
@@ -113,7 +128,9 @@ public class Planet {
 
     /**
      * Sets entities which can spawn on planet
-     * @param entities list of entities which can spawn on planet
+     * 
+     * @param entities
+     *            list of entities which can spawn on planet
      */
     public void setEntities(List<Entity> entities) {
         this.entities = entities;
@@ -123,16 +140,13 @@ public class Planet {
      * Shuffles entities for planet
      */
     public void shuffleEntities() {
-
     }
 
     /**
      * Method when planet is creating
      */
 
-    public void onCreate(){
+    public void onCreate() {
         shuffleEntities();
-
     }
-
 }
