@@ -14,23 +14,27 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class LostGalaxy extends JavaPlugin {
 
-    private static LostGalaxy inst;
+    private static LostGalaxy plugin;
 
-    public static LostGalaxy getInst() {
-        return inst;
+    public LostGalaxy() {
+        plugin = this;
     }
 
     @Override
     public void onEnable() {
-        inst = this;
-        Recipes.register();
+        Recipes.add();
+        
         Bukkit.getPluginManager().registerEvents(new NpcClick(), this);
+        
         getCommand("spawnnpc").setExecutor(new Spawn());
     }
 
     @Override
     public void onDisable() {
-        inst = null;
+        plugin = null;
     }
 
+    public static LostGalaxy getPlugin() {
+        return plugin;
+    }
 }

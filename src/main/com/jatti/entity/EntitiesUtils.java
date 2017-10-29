@@ -11,14 +11,22 @@ import java.util.Random;
  */
 public class EntitiesUtils {
 
-    private static List<Entity> entities = new ArrayList<Entity>();
+    private static final List<EntityType> types = new ArrayList<EntityType>();
+    private static final Random random = new Random();
+    private static final List<Entity> entities = new ArrayList<Entity>();
 
+    static {
+        types.add(EntityType.DESERT_ZOMBIE);
+        types.add(EntityType.SUCKER);
+        types.add(EntityType.WISP);
+        types.add(EntityType.ZOMBIE);
+    }
+    
     /**
      * Gets list with all entities
      * @return List<Entity>
      */
     public static List<Entity> getEntities() {
-        if (entities == null) entities = new ArrayList<Entity>();
         return entities;
     }
 
@@ -27,7 +35,9 @@ public class EntitiesUtils {
      * @param entity entity to add
      */
     public static void addEntity(Entity entity) {
-        if (!entities.contains(entity)) entities.add(entity);
+        if (!entities.contains(entity)) {
+            entities.add(entity);
+        }
     }
 
     /**
@@ -35,7 +45,9 @@ public class EntitiesUtils {
      * @param entity entity to remove
      */
     public static void removeEntity(Entity entity) {
-        if (entities.contains(entity)) entities.remove(entity);
+        if (entities.contains(entity)) {
+            entities.remove(entity);
+        }
     }
 
     /**
@@ -43,17 +55,6 @@ public class EntitiesUtils {
      * @return EntityType
      */
     public static EntityType getRandType() {
-
-        List<EntityType> types = new ArrayList<EntityType>();
-
-        types.add(EntityType.DESERT_ZOMBIE);
-        types.add(EntityType.SUCKER);
-        types.add(EntityType.WISP);
-        types.add(EntityType.ZOMBIE);
-
-        int rand = new Random().nextInt(types.size());
-
-        return types.get(rand);
-
+        return types.get(random.nextInt(types.size()));
     }
 }

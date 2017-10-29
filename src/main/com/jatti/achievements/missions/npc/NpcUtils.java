@@ -10,15 +10,13 @@ import java.util.List;
  */
 public class NpcUtils {
 
-    private static List<Npc> npcs = new ArrayList<Npc>();
-
+    private static final List<Npc> npcs = new ArrayList<Npc>();
 
     /**
      * Gets list of all npcs
      * @return List<Npc>
      */
     public static List<Npc> getNpcs() {
-        if (npcs == null) npcs = new ArrayList<Npc>();
         return npcs;
     }
 
@@ -27,7 +25,8 @@ public class NpcUtils {
      * @param npc npc which will be added
      */
     public static void addNpc(Npc npc) {
-        if (!npcs.contains(npc)) npcs.add(npc);
+        if (!npcs.contains(npc)) {
+            npcs.add(npc);
+        }
     }
-
 }

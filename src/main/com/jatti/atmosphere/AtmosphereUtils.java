@@ -8,14 +8,13 @@ import java.util.List;
  */
 public class AtmosphereUtils {
 
-    private static List<Atmosphere> atmospheres = new ArrayList<Atmosphere>();
+    private static final List<Atmosphere> atmospheres = new ArrayList<Atmosphere>();
 
     /**
      * Gets list of all atmospheres
      * @return List<Atmosphere>
      */
     public static List<Atmosphere> getAtmospheres() {
-        if (atmospheres == null) atmospheres = new ArrayList<Atmosphere>();
         return atmospheres;
     }
 
@@ -24,9 +23,9 @@ public class AtmosphereUtils {
      * @param atmosphere atmosphere to add
      */
     public static void addAtmosphere(Atmosphere atmosphere) {
-
-        if (!atmospheres.contains(atmosphere)) atmospheres.add(atmosphere);
-
+        if (!atmospheres.contains(atmosphere)) {
+            atmospheres.add(atmosphere);
+        }
     }
 
     /**
@@ -34,7 +33,8 @@ public class AtmosphereUtils {
      * @param atmosphere atmosphere to remove
      */
     public static void removeAtmosphere(Atmosphere atmosphere) {
-        if (atmospheres.contains(atmosphere)) atmospheres.remove(atmosphere);
+        if (atmospheres.contains(atmosphere)) {
+            atmospheres.remove(atmosphere);
+        }
     }
-
 }

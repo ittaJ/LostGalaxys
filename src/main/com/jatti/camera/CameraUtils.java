@@ -12,16 +12,13 @@ import java.util.List;
  */
 public class CameraUtils {
 
-    private static List<Camera> cameras = new ArrayList<Camera>();
+    private static final List<Camera> cameras = new ArrayList<Camera>();
 
     /**
      * Gets all cameras
      * @return List<Camera>
      */
     public static List<Camera> getAllCameras() {
-
-        if (cameras == null) cameras = new ArrayList<Camera>();
-
         return cameras;
     }
 
@@ -31,13 +28,12 @@ public class CameraUtils {
      * @return List<Camera>
      */
     public static List<Camera> getCamerasForUser(User user) {
-
         List<Camera> cam = new ArrayList<Camera>();
 
         for (Camera c : cameras) {
-
-            if (c.getOwner().equals(user)) cam.add(c);
-
+            if (c.getOwner().equals(user)) {
+                cam.add(c);
+            }
         }
 
         return cam;
@@ -49,9 +45,9 @@ public class CameraUtils {
      * @param camera camera to add
      */
     public static void addCamera(Camera camera) {
-
-        if (!cameras.contains(camera)) cameras.add(camera);
-
+        if (!cameras.contains(camera)) {
+            cameras.add(camera);
+        }
     }
 
     /**
@@ -59,9 +55,8 @@ public class CameraUtils {
      * @param camera camera to remove
      */
     public static void removeCamera(Camera camera) {
-
-        if (cameras.contains(camera)) cameras.remove(camera);
-
+        if (cameras.contains(camera)) {
+            cameras.remove(camera);
+        }
     }
-
 }
