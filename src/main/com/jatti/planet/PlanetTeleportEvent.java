@@ -11,7 +11,7 @@ import org.bukkit.event.HandlerList;
  */
 public class PlanetTeleportEvent extends Event{
 
-    private static HandlerList handlerList;
+    private static HandlerList handlerList = new HandlerList();
     private User user;
     private Planet planet;
 

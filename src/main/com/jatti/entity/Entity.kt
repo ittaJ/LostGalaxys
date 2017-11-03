@@ -13,19 +13,19 @@ import java.util.*
  *
  * @param type type of entity
  */
-open class Entity(open var type: EntityType?) {
+class Entity(var type: EntityType?) {
 
     constructor() : this(null)
 
     //TODO add pets
-    open var isTamed: Boolean = false
-    open var tamer: User? = null
-    open var isAgressive: Boolean = true
-    open var level: Int = 0
-    open var expToDrop: Double = 0.0
-    open var id: Int = 0
-    open var life: Int = 0
-    open var entityCategory: EntityCategory? = null
+    var isTamed: Boolean = false
+    var tamer: User? = null
+    var isAgressive: Boolean = true
+    var level: Int = 0
+    var expToDrop: Double = 0.0
+    var id: Int = 0
+    var life: Int = 0
+    var entityCategory: EntityCategory? = null
 
 
     init {

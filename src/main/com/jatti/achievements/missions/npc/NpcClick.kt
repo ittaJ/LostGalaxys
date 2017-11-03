@@ -1,6 +1,7 @@
 package com.jatti.achievements.missions.npc
 
 import com.jatti.achievements.missions.Mission
+import com.jatti.achievements.missions.MissionsList
 import com.jatti.user.User
 import com.jatti.user.ranks.MinimalRankCheck
 import org.bukkit.ChatColor
@@ -8,6 +9,7 @@ import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractAtEntityEvent
+import kotlin.reflect.KClass
 import kotlin.reflect.full.functions
 
 /**
@@ -16,28 +18,6 @@ import kotlin.reflect.full.functions
  * @version 1.2
  */
 class NpcClick : Listener {
-
-    companion object {
-        /**
-         * List of all missions that you can get from NPC
-         * @return ArrayList<Mission>
-         */
-        @JvmStatic
-        fun getMissions(): ArrayList<Mission> {
-            return ArrayList()
-        }
-
-        /**
-         * Method for adding mission to mission's list
-         * @param mission mission to add
-         */
-        @JvmStatic
-        fun addMission(mission:Mission){
-            if(!getMissions().contains(mission)){
-                getMissions().add(mission)
-            }
-        }
-    }
 
     @EventHandler
     fun onClick(evt: PlayerInteractAtEntityEvent) {
@@ -50,7 +30,7 @@ class NpcClick : Listener {
 
                     val u: User = User.get(evt.player.name)
 
-                    for (mission in getMissions()) {
+                    for (mission in MissionsList.getAllNpcMissions()!!) {
 
                         if (n.id == mission.id) {
 
@@ -64,7 +44,7 @@ class NpcClick : Listener {
 
                                             mission.onComplete(u)
                                         }else{
-                                            u.sendMessage("" + ChatColor.DARK_RED + "Z twoja ranga nie mozesz zakonczyc tej misji!")
+                                            u.sendMessage("${ChatColor.DARK_RED} Z twoja ranga nie mozesz zakonczyc tej misji!")
                                         }
                                     }
 
@@ -81,7 +61,7 @@ class NpcClick : Listener {
 
                                             mission.onGet(u)
                                         }else{
-                                            u.sendMessage("" + ChatColor.DARK_RED + "Z twoja ranga nie mozesz zakonczyc tej misji!")
+                                            u.sendMessage("${ChatColor.DARK_RED} Z twoja ranga nie mozesz zakonczyc tej misji!")
                                         }
                                     }
                                 }

@@ -1,6 +1,7 @@
 package com.jatti.achievements.missions.npc;
 
 import com.jatti.achievements.missions.Mission;
+import com.jatti.achievements.missions.MissionsList;
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -22,7 +23,7 @@ public class Spawn implements CommandExecutor {
             if (NumberUtils.isNumber(args[0])) {
                 int id = Integer.parseInt(args[0]);
 
-                for (Mission m : NpcClick.getMissions()) {
+                for (Mission m : MissionsList.getAllNpcMissions()) {
                     if (m.getId() == id) {
                         Npc n = new Npc(id, p.getLocation());
                         n.spawn();

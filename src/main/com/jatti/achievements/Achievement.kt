@@ -78,6 +78,7 @@ class AchievementBuilder(id: Int) {
 
     /**
      * Creates new Achievement
+     * @return Achievement
      */
     fun build(): Achievement {
         return ach

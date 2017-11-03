@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class MissionDiary {
 
-    private static final List<Mission> missions = new ArrayList<Mission>();
+
     private static final ItemStack missionBook;
 
     static {
@@ -30,15 +30,6 @@ public class MissionDiary {
                         .build();
     }
 
-    private static List<Mission> getAllMissions() {
-        return missions;
-    }
-
-    public static void addMission(Mission mission) {
-        if (!missions.contains(mission)) {
-            missions.add(mission);
-        }
-    }
 
     /**
      * Adds book with all user's mission to user's inventory
@@ -49,9 +40,9 @@ public class MissionDiary {
     public static void showMissions(User user) {
         Player p = user.getPlayer();
         BookMeta bm = (BookMeta) missionBook.getItemMeta();
-        bm.setPages(Collections.emptyList());
+        bm.setPages(Collections.<String>emptyList());
 
-        for (Mission m : getAllMissions()) {
+        for (Mission m : MissionsList.getAllMissions()) {
             if (user.getMissions().contains(m.getId())) {
                 bm.addPage(ChatColor.DARK_GREEN + "Misja nr " + ChatColor.GOLD + m.getId() + "\n" + ChatColor.GREEN + ",,"
                                 + m.getName() + ",," + "\n" + ChatColor.GRAY + m.getLore());

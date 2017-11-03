@@ -145,7 +145,7 @@ import java.util.*
      */
     fun addAchievement(achievement: Achievement) {
         if (!achievements!!.contains(achievement)) achievements!!.add(achievement)
-        sendMessage("" + ChatColor.GREEN + "Zdobyto osiagniecie " + achievement.name + " !")
+        sendMessage("${ChatColor.GREEN} Zdobyto osiagniecie ${achievement.name} !")
     }
 
     /**
