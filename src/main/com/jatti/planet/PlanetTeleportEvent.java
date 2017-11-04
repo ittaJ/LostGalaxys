@@ -6,10 +6,11 @@ import org.bukkit.event.HandlerList;
 
 /**
  * Event for teleporting to planet
+ *
  * @author Jatti
  * @version 1.0
  */
-public class PlanetTeleportEvent extends Event{
+public class PlanetTeleportEvent extends Event {
 
     private static HandlerList handlerList = new HandlerList();
     private User user;
@@ -17,32 +18,35 @@ public class PlanetTeleportEvent extends Event{
 
     /**
      * Creates new PlanetTeleportEvent
-     * @param user user to teleport
+     *
+     * @param user   user to teleport
      * @param planet planet on which user will be
      */
-    public PlanetTeleportEvent(User user, Planet planet){
+    public PlanetTeleportEvent(User user, Planet planet) {
         this.user = user;
         this.planet = planet;
     }
 
+    public static HandlerList getHandlerList() {
+        return handlerList;
+    }
+
     /**
      * Gets user
+     *
      * @return User
      */
-    public User getUser(){
+    public User getUser() {
         return user;
     }
 
     /**
      * Gets planet
+     *
      * @return Planet
      */
     public Planet getPlanet() {
         return planet;
-    }
-
-    public static HandlerList getHandlerList(){
-        return handlerList;
     }
 
     public HandlerList getHandlers() {

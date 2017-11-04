@@ -7,6 +7,7 @@ import org.bukkit.event.HandlerList;
 
 /**
  * Event which is called when player teleports via Camera
+ *
  * @author Jatti
  * @version 1.0
  */
@@ -19,8 +20,9 @@ public class CameraTeleportEvent extends Event {
 
     /**
      * Creates new CameraTeleportEvent
-     * @param user user which is teleporting
-     * @param camera camera which is player teleporting to
+     *
+     * @param user     user which is teleporting
+     * @param camera   camera which is player teleporting to
      * @param computer computer with which camera is connected
      */
     public CameraTeleportEvent(User user, Camera camera, Computer computer) {
@@ -31,6 +33,7 @@ public class CameraTeleportEvent extends Event {
 
     /**
      * Gets HandlerList (class event needs it)
+     *
      * @return HandlerList
      */
 
@@ -40,6 +43,7 @@ public class CameraTeleportEvent extends Event {
 
     /**
      * Gets Computer
+     *
      * @return Computer
      */
     public Computer getComputer() {
@@ -48,6 +52,7 @@ public class CameraTeleportEvent extends Event {
 
     /**
      * Gets camera's owner
+     *
      * @return User
      */
     public User getUser() {
@@ -56,6 +61,7 @@ public class CameraTeleportEvent extends Event {
 
     /**
      * Gets Camera
+     *
      * @return Camera
      */
     public Camera getCamera() {

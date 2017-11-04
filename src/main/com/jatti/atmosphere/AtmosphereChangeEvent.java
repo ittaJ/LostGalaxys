@@ -6,6 +6,7 @@ import org.bukkit.event.HandlerList;
 
 /**
  * Event when Atmosphere is changing
+ *
  * @author Jatti
  * @version 1.0
  */
@@ -21,10 +22,11 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * Creates new event which can change gravity on planet
-     * @param planet planet where atmosphere is going to change
+     *
+     * @param planet        planet where atmosphere is going to change
      * @param oldAtmosphere (if change worked) old atmosphere on planet
      * @param newAtmosphere (if change worked) new atmosphere on planet
-     * other values like canDestroy, willWork and changeTime are going to be random
+     *                      other values like canDestroy, willWork and changeTime are going to be random
      */
     public AtmosphereChangeEvent(Planet planet, Atmosphere oldAtmosphere, Atmosphere newAtmosphere) {
         this.planet = planet;
@@ -39,6 +41,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * Gets HandlerList (class event needs it)
+     *
      * @return HandlerList
      */
 
@@ -48,6 +51,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * Gets planet on which atmosphere is changing
+     *
      * @return Planet
      */
     public Planet getPlanet() {
@@ -56,6 +60,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * Gets old atmosphere (if change worked)
+     *
      * @return Atmosphere
      */
     public Atmosphere getOldAtmosphere() {
@@ -64,6 +69,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * Gets new atmosphere (if change worked)
+     *
      * @return Atmosphere
      */
     public Atmosphere getNewAtmosphere() {
@@ -72,6 +78,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * if change of atmosphere can destroy planet
+     *
      * @return boolean
      */
     public boolean canDestroy() {
@@ -80,6 +87,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * if change will work
+     *
      * @return boolean
      */
     public boolean willWork() {
@@ -88,6 +96,7 @@ public class AtmosphereChangeEvent extends Event {
 
     /**
      * change time
+     *
      * @return int
      */
     public int getChangeTime() {

@@ -14,6 +14,7 @@ public enum AbilityType {
 
     /**
      * type of ability with chance
+     *
      * @param chance chance for mob to get this ability
      */
     AbilityType(int chance) {
@@ -22,6 +23,7 @@ public enum AbilityType {
 
     /**
      * Gets chance to get this ability
+     *
      * @return int
      */
     public int getChance() {

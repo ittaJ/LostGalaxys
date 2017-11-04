@@ -1,8 +1,10 @@
 package com.jatti;
 
-import java.util.Arrays;
-import java.util.List;
-
+import com.jatti.achievements.Achievement;
+import com.jatti.battery.Battery;
+import com.jatti.camera.Camera;
+import com.jatti.computer.Computer;
+import com.jatti.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -10,11 +12,8 @@ import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.jatti.achievements.Achievement;
-import com.jatti.battery.Battery;
-import com.jatti.camera.Camera;
-import com.jatti.computer.Computer;
-import com.jatti.user.User;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Class for making guis
@@ -31,24 +30,23 @@ public class Gui {
 
     static {
         nameItem = ItemBuilder.fromScratch().type(Material.NAME_TAG).name(ChatColor.DARK_GREEN + "Zmien nazwe")
-                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zmienic nazwe komputera")).build();
+                .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zmienic nazwe komputera")).build();
 
         cameraItem = ItemBuilder.fromScratch().type(Material.BOOK).name(ChatColor.DARK_GREEN + "Kamery")
-                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zobaczyc podglad kamer")).build();
+                .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by zobaczyc podglad kamer")).build();
 
         energyItem = ItemBuilder.fromScratch().type(Material.REDSTONE).name(ChatColor.DARK_GREEN + "Dodaj energie")
-                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by dodac energie do komputera")).build();
+                .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by dodac energie do komputera")).build();
 
         offItem = ItemBuilder.fromScratch().type(Material.REDSTONE_BLOCK).name(ChatColor.DARK_RED + "Wylacz")
-                        .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by wylaczyc komputer")).build();
+                .lore(Arrays.asList(ChatColor.GRAY + "Kliknij tu, by wylaczyc komputer")).build();
 
     }
 
     /**
      * Opens Computer's gui
-     * 
-     * @param user
-     *            user which will have this gui opened
+     *
+     * @param user user which will have this gui opened
      */
     public static void openComputerGui(User user) {
         Inventory computerGUI = Bukkit.createInventory(null, 9, Computer.get(user).getName());
@@ -62,9 +60,8 @@ public class Gui {
 
     /**
      * Open guis with cameras
-     * 
-     * @param user
-     *            user which will have this gui opened
+     *
+     * @param user user which will have this gui opened
      */
     public static void openCamerasGui(User user) {
         List<Camera> cameras = Computer.get(user).getCameras();
@@ -81,11 +78,9 @@ public class Gui {
 
     /**
      * Opens gui for battery
-     * 
-     * @param user
-     *            user which will have this gui opened
-     * @param location
-     *            battery's location
+     *
+     * @param user     user which will have this gui opened
+     * @param location battery's location
      */
     @Deprecated
     public static void openEnergyGui(User user, Location location) {
@@ -95,9 +90,8 @@ public class Gui {
 
     /**
      * Opens gui with achievements
-     * 
-     * @param user
-     *            user which will have this gui opened
+     *
+     * @param user user which will have this gui opened
      */
     public static void openAchievementGui(User user) {
         List<Achievement> achievements = user.getAchievements();
@@ -105,20 +99,20 @@ public class Gui {
 
         for (Achievement a : achievements) {
             switch (a.getDifficulty()) {
-            case EASY:
-                inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 5)
-                                .name(ChatColor.GREEN + a.getName()).build());
-                break;
+                case EASY:
+                    inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 5)
+                            .name(ChatColor.GREEN + a.getName()).build());
+                    break;
 
-            case MEDIUM:
-                inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 4)
-                                .name(ChatColor.YELLOW + a.getName()).build());
-                break;
+                case MEDIUM:
+                    inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 4)
+                            .name(ChatColor.YELLOW + a.getName()).build());
+                    break;
 
-            case HARD:
-                inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 14)
-                                .name(ChatColor.RED + a.getName()).build());
-                break;
+                case HARD:
+                    inv.setItem(inv.firstEmpty(), ItemBuilder.fromScratch().type(Material.STAINED_GLASS_PANE).durability((short) 14)
+                            .name(ChatColor.RED + a.getName()).build());
+                    break;
             }
         }
 

@@ -8,14 +8,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Class with missions diary for players
- * 
+ *
  * @author Jatti
  * @version 1.1
  */
@@ -26,16 +24,15 @@ public class MissionDiary {
 
     static {
         missionBook = ItemBuilder.fromScratch().type(Material.WRITTEN_BOOK).name(ChatColor.GRAY + "Dziennik Misji")
-                        .lore(Arrays.asList(ChatColor.AQUA + "Dziennik z twoimi misjami", ChatColor.AQUA + "Kliknij by otworzyc"))
-                        .build();
+                .lore(Arrays.asList(ChatColor.AQUA + "Dziennik z twoimi misjami", ChatColor.AQUA + "Kliknij by otworzyc"))
+                .build();
     }
 
 
     /**
      * Adds book with all user's mission to user's inventory
-     * 
-     * @param user
-     *            user which will have missions diary
+     *
+     * @param user user which will have missions diary
      */
     public static void showMissions(User user) {
         Player p = user.getPlayer();
@@ -45,7 +42,7 @@ public class MissionDiary {
         for (Mission m : MissionsList.getAllMissions()) {
             if (user.getMissions().contains(m.getId())) {
                 bm.addPage(ChatColor.DARK_GREEN + "Misja nr " + ChatColor.GOLD + m.getId() + "\n" + ChatColor.GREEN + ",,"
-                                + m.getName() + ",," + "\n" + ChatColor.GRAY + m.getLore());
+                        + m.getName() + ",," + "\n" + ChatColor.GRAY + m.getLore());
             }
         }
 

@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Utils for Cameras
+ *
  * @author Jatti
  * @version 1.0
  */
@@ -16,6 +17,7 @@ public class CameraUtils {
 
     /**
      * Gets all cameras
+     *
      * @return List<Camera>
      */
     public static List<Camera> getAllCameras() {
@@ -24,6 +26,7 @@ public class CameraUtils {
 
     /**
      * Gets all user's cameras
+     *
      * @param user cameras' owner
      * @return List<Camera>
      */
@@ -42,6 +45,7 @@ public class CameraUtils {
 
     /**
      * Adds camera to list
+     *
      * @param camera camera to add
      */
     public static void addCamera(Camera camera) {
@@ -52,6 +56,7 @@ public class CameraUtils {
 
     /**
      * Removes camera from list
+     *
      * @param camera camera to remove
      */
     public static void removeCamera(Camera camera) {

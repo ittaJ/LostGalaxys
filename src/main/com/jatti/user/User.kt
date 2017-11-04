@@ -1,6 +1,7 @@
 package com.jatti.user
 
 import com.jatti.achievements.Achievement
+import com.jatti.gates.dimension.DimensionType
 import com.jatti.user.ranks.Rank
 import com.jatti.user.tutorial.TutorialEvent
 import net.minecraft.server.v1_12_R1.IChatBaseComponent
@@ -19,17 +20,20 @@ import java.util.*
  * @param name user's name
  * */
 
- class User(var name:String){
 
-    var gold:Int = 0
-    var hasComputer:Boolean = false
-    var level:Int = 0
-    var exp:Double = 0.0
+//TODO Rewrite
+class User(var name: String) {
+
+    var gold: Int = 0
+    var hasComputer: Boolean = false
+    var level: Int = 0
+    var exp: Double = 0.0
     var rank: Rank? = null
     var achievements: MutableList<Achievement>? = ArrayList()
     var missions: MutableList<Int>? = ArrayList()
+    var dimension: DimensionType? = null
 
-    init{
+    init {
         UserUtils.addUser(this)
     }
 
@@ -41,11 +45,11 @@ import java.util.*
          *
          * */
         @JvmStatic
-        fun get(name:String):User{
+        fun get(name: String): User {
 
-            for(u in UserUtils.getUsers()){
+            for (u in UserUtils.getUsers()) {
 
-                if(u.name == name){
+                if (u.name == name) {
                     return u
                 }
 
@@ -63,7 +67,7 @@ import java.util.*
      *
      */
 
-    fun getPlayer():Player{
+    fun getPlayer(): Player {
         return Bukkit.getPlayer(name)
     }
 
@@ -76,7 +80,7 @@ import java.util.*
      * @param message message will be shown as ActionBar
      *
      */
-    fun sendActionBar(fadein:Int, stay:Int, fadeout:Int, message:String){
+    fun sendActionBar(fadein: Int, stay: Int, fadeout: Int, message: String) {
         val ic = IChatBaseComponent.ChatSerializer.a("{\"text\": \"$message\"}")
         val pc = PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.ACTIONBAR, ic, fadein, stay, fadeout)
         (getPlayer() as CraftPlayer).handle.playerConnection.sendPacket(pc)
@@ -85,7 +89,7 @@ import java.util.*
     /**
      * Checks if User has enought exp to get next level, if yes automatically changes that level
      */
-    fun checkIfNextLevel(){
+    fun checkIfNextLevel() {
         if (exp == 0.0) level = 0
         if (exp == (2 * (level + 1 + 4)).toDouble() && level < 8) {
             Bukkit.getPluginManager().callEvent(LevelUpEvent(this, level, level + 1))
@@ -114,7 +118,7 @@ import java.util.*
      * @param levels amount of levels
      *
      */
-    fun addLevels(levels:Int){
+    fun addLevels(levels: Int) {
         Bukkit.getPluginManager().callEvent(LevelUpEvent(this, level, level + levels))
         this.level = level + levels
     }
@@ -134,7 +138,7 @@ import java.util.*
      * @param message message which will be sended to player
      *
      */
-    fun sendMessage(message: String){
+    fun sendMessage(message: String) {
         getPlayer().sendMessage(message)
     }
 
@@ -145,7 +149,7 @@ import java.util.*
      */
     fun addAchievement(achievement: Achievement) {
         if (!achievements!!.contains(achievement)) achievements!!.add(achievement)
-        sendMessage("${ChatColor.GREEN} Zdobyto osiagniecie ${achievement.name} !")
+        sendMessage("${ChatColor.GREEN} /Zdobyto osiagniecie ${achievement.name} !")
     }
 
     /**

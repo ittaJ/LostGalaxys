@@ -16,7 +16,7 @@ import org.bukkit.potion.PotionEffectType
  */
 class Npc(val id: Int, val location: Location) {
 
-    var entityId:Int? = null
+    var entityId: Int? = null
 
     init {
         NpcUtils.addNpc(this)

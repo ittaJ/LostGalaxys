@@ -1,8 +1,5 @@
 package com.jatti;
 
-import java.util.List;
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -13,12 +10,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import java.util.List;
+import java.util.UUID;
+
 public class ItemBuilder {
 
     private ItemStack item = new ItemStack(Material.AIR, 1);
     private ItemMeta itemMeta = item.getItemMeta();
 
-    public ItemBuilder() {}
+    public ItemBuilder() {
+    }
 
     public ItemBuilder(ItemStack base) {
         this.item = base;
@@ -37,7 +38,7 @@ public class ItemBuilder {
         this.item.setItemMeta(this.itemMeta);
         return this.item;
     }
-    
+
     public ItemBuilder type(Material type) {
         this.item.setType(type);
         return this;
@@ -72,7 +73,7 @@ public class ItemBuilder {
         this.itemMeta.setUnbreakable(is);
         return this;
     }
-    
+
     public ItemBuilder flag(ItemFlag flag) {
         if (this.itemMeta.hasItemFlag(flag)) {
             this.itemMeta.removeItemFlags(flag);
@@ -82,20 +83,20 @@ public class ItemBuilder {
 
         return this;
     }
-    
+
     public ItemBuilder color(Color color) {
-        if(this.itemMeta instanceof LeatherArmorMeta) {
+        if (this.itemMeta instanceof LeatherArmorMeta) {
             ((LeatherArmorMeta) this.itemMeta).setColor(color);
         }
-        
+
         return this;
     }
-    
+
     public ItemBuilder skullOwner(UUID skullOwner) {
-        if(this.itemMeta instanceof SkullMeta) {
+        if (this.itemMeta instanceof SkullMeta) {
             ((SkullMeta) this.itemMeta).setOwningPlayer(Bukkit.getOfflinePlayer(skullOwner));
         }
-        
+
         return this;
     }
 }

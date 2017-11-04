@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Utils for Rank
- * 
+ *
  * @author Jatti
  * @version 1.0
  */
@@ -15,7 +15,7 @@ public class RankUtils {
 
     /**
      * Gets list of ranks
-     * 
+     *
      * @return List<Rank>
      */
     public static List<Rank> getRanks() {
@@ -24,9 +24,8 @@ public class RankUtils {
 
     /**
      * Adds rank to list
-     * 
-     * @param rank
-     *            which will be added
+     *
+     * @param rank which will be added
      */
     public static void addRank(Rank rank) {
         if (!ranks.contains(rank)) {
@@ -36,9 +35,8 @@ public class RankUtils {
 
     /**
      * Removes rank from list
-     * 
-     * @param rank
-     *            which will be removed
+     *
+     * @param rank which will be removed
      */
     public static void removeRank(Rank rank) {
         if (ranks.contains(rank)) {

@@ -12,6 +12,7 @@ public class AtmosphereUtils {
 
     /**
      * Gets list of all atmospheres
+     *
      * @return List<Atmosphere>
      */
     public static List<Atmosphere> getAtmospheres() {
@@ -20,6 +21,7 @@ public class AtmosphereUtils {
 
     /**
      * Adds atmosphere to list
+     *
      * @param atmosphere atmosphere to add
      */
     public static void addAtmosphere(Atmosphere atmosphere) {
@@ -30,6 +32,7 @@ public class AtmosphereUtils {
 
     /**
      * Removes atmosphere from list
+     *
      * @param atmosphere atmosphere to remove
      */
     public static void removeAtmosphere(Atmosphere atmosphere) {

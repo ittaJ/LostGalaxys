@@ -17,6 +17,7 @@ public class BatteryUtils {
 
     /**
      * List of all batteries
+     *
      * @return List<Battery>
      */
     public static List<Battery> getBatteries() {
@@ -25,6 +26,7 @@ public class BatteryUtils {
 
     /**
      * Adds battery to list
+     *
      * @param battery battery to add
      */
     public static void addBattery(Battery battery) {
@@ -35,6 +37,7 @@ public class BatteryUtils {
 
     /**
      * Removes battery from list
+     *
      * @param battery battery to remove
      */
     public static void removeBattery(Battery battery) {
@@ -45,6 +48,7 @@ public class BatteryUtils {
 
     /**
      * Gets batteries for gived user
+     *
      * @param owner owner of batteries
      * @return List<Battery>
      */

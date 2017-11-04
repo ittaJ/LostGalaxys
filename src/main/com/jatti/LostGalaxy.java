@@ -20,21 +20,21 @@ public class LostGalaxy extends JavaPlugin {
         plugin = this;
     }
 
+    public static LostGalaxy getPlugin() {
+        return plugin;
+    }
+
     @Override
     public void onEnable() {
         Recipes.add();
-        
+
         Bukkit.getPluginManager().registerEvents(new NpcClick(), this);
-        
+
         getCommand("spawnnpc").setExecutor(new Spawn());
     }
 
     @Override
     public void onDisable() {
         plugin = null;
-    }
-
-    public static LostGalaxy getPlugin() {
-        return plugin;
     }
 }

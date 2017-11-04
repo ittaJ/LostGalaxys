@@ -17,7 +17,7 @@ public class TeleporterUtils {
 
     /**
      * List of all Teleporters
-     * 
+     *
      * @return List<Teleporter>
      */
     public static List<Teleporter> getTeleporters() {
@@ -26,9 +26,8 @@ public class TeleporterUtils {
 
     /**
      * Adds teleporter to list
-     * 
-     * @param teleporter
-     *            teleporter to add
+     *
+     * @param teleporter teleporter to add
      */
     public static void addTeleporter(Teleporter teleporter) {
         if (!teleporterList.contains(teleporter)) {
@@ -38,9 +37,8 @@ public class TeleporterUtils {
 
     /**
      * Removes teleporter from list
-     * 
-     * @param teleporter
-     *            teleporter to remove
+     *
+     * @param teleporter teleporter to remove
      */
     public static void removeTeleporter(Teleporter teleporter) {
         if (teleporterList.contains(teleporter)) {
@@ -50,9 +48,8 @@ public class TeleporterUtils {
 
     /**
      * Gets all user's teleporters
-     * 
-     * @param user
-     *            owner of those teleporters
+     *
+     * @param user owner of those teleporters
      * @return List<Teleporter>
      */
     public static List<Teleporter> getTeleportersForUser(User user) {
@@ -70,11 +67,9 @@ public class TeleporterUtils {
 
     /**
      * Gets all user's teleporters in specified channel
-     * 
-     * @param user
-     *            owner of those teleporters
-     * @param channel
-     *            channel of those teleporters
+     *
+     * @param user    owner of those teleporters
+     * @param channel channel of those teleporters
      * @return List<Teleporter>
      */
     public static List<Teleporter> getTeleportersForUserInChannel(User user, int channel) {

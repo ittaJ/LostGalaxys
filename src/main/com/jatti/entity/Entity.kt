@@ -13,6 +13,7 @@ import java.util.*
  *
  * @param type type of entity
  */
+//TODO Rewrite
 class Entity(var type: EntityType?) {
 
     constructor() : this(null)
@@ -57,7 +58,7 @@ class Entity(var type: EntityType?) {
         if (isTamed) {
             if (hit) {
                 if (user == tamer!!) {
-                    user.sendMessage("" + ChatColor.DARK_RED + "Nie mozesz udezyc swojego zwierzaka!")
+                    user.sendMessage("${ChatColor.DARK_RED}Nie mozesz udezyc swojego zwierzaka!")
                 } else {
                     Bukkit.getPluginManager().callEvent(MEntityHittedEvent(this, user))
                 }
@@ -94,7 +95,6 @@ class Entity(var type: EntityType?) {
         life = level * 5
 
     }
-
 
 
     companion object {

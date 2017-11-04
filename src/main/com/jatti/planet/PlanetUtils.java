@@ -12,7 +12,7 @@ public class PlanetUtils {
 
     /**
      * Gets list of all planets
-     * 
+     *
      * @return List<Planet>
      */
     public static List<Planet> getPlanets() {
@@ -21,9 +21,8 @@ public class PlanetUtils {
 
     /**
      * Adds Planet to list
-     * 
-     * @param p
-     *            planet to add
+     *
+     * @param p planet to add
      */
     public static void addPlanet(Planet p) {
         if (!planets.contains(p)) {
@@ -33,9 +32,8 @@ public class PlanetUtils {
 
     /**
      * Removes Planet from list
-     * 
-     * @param p
-     *            planet to remove
+     *
+     * @param p planet to remove
      */
     public static void removePlanet(Planet p) {
         if (planets.contains(p)) {

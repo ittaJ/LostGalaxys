@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 /**
  * Command for creating npcs
- * 
+ *
  * @author Jatti
  * @version 1.0
  */

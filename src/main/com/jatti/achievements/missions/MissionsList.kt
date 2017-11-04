@@ -1,6 +1,6 @@
 package com.jatti.achievements.missions
 
-class MissionsList{
+class MissionsList {
 
     companion object {
 
@@ -8,23 +8,23 @@ class MissionsList{
         private var amn = ArrayList<Mission>()
 
         @JvmStatic
-        fun getAllMissions():ArrayList<Mission>?{
+        fun getAllMissions(): ArrayList<Mission>? {
             return am
         }
 
 
         @JvmStatic
-        fun getAllNpcMissions():ArrayList<Mission>?{
+        fun getAllNpcMissions(): ArrayList<Mission>? {
             return amn
         }
 
         @JvmStatic
-        fun addMission(mission: Mission, type: AddType){
+        fun addMission(mission: Mission, type: AddType) {
 
-            when(type){
+            when (type) {
 
-               AddType.ALL -> getAllMissions()!!.add(mission)
-               AddType.NPC -> getAllNpcMissions()!!.add(mission)
+                AddType.ALL -> getAllMissions()!!.add(mission)
+                AddType.NPC -> getAllNpcMissions()!!.add(mission)
             }
 
         }
@@ -32,7 +32,7 @@ class MissionsList{
 
 }
 
-enum class AddType{
+enum class AddType {
 
     ALL, NPC
 

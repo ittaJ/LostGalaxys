@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Utils for NPC
+ *
  * @author Jatti
  * @version 1.0
  */
@@ -14,6 +15,7 @@ public class NpcUtils {
 
     /**
      * Gets list of all npcs
+     *
      * @return List<Npc>
      */
     public static List<Npc> getNpcs() {
@@ -22,6 +24,7 @@ public class NpcUtils {
 
     /**
      * Adds npc to list if it doesn't have it
+     *
      * @param npc npc which will be added
      */
     public static void addNpc(Npc npc) {

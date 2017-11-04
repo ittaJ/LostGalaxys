@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Represents Rank which User can get when it gets some level
- * 
+ *
  * @author Jatti
  * @version 1.1
  */
@@ -20,10 +20,8 @@ public class Rank {
 
     /**
      * Creates rank with specified name
-     * 
-     * @param name
-     *            rank's name
      *
+     * @param name rank's name
      */
     public Rank(String name) {
         this.name = name;
@@ -31,9 +29,8 @@ public class Rank {
 
     /**
      * Gets rank from all ranks list or makes new when it doesn't exists
-     * 
-     * @param name
-     *            rank's name
+     *
+     * @param name rank's name
      * @return Rank
      */
     public static Rank get(String name) {
@@ -48,7 +45,7 @@ public class Rank {
 
     /**
      * Gets rank's name
-     * 
+     *
      * @return String
      */
     public String getName() {
@@ -57,9 +54,8 @@ public class Rank {
 
     /**
      * Sets rank's name
-     * 
-     * @param name
-     *            rank's name
+     *
+     * @param name rank's name
      */
     public void setName(String name) {
         this.name = name;
@@ -67,7 +63,7 @@ public class Rank {
 
     /**
      * Gets level when player can get this rank
-     * 
+     *
      * @return int
      */
     public int getLevel() {
@@ -76,9 +72,8 @@ public class Rank {
 
     /**
      * Sets level when player can get this rank
-     * 
-     * @param level
-     *            min. level
+     *
+     * @param level min. level
      */
     public void setLevel(int level) {
         this.level = level;
@@ -86,7 +81,7 @@ public class Rank {
 
     /**
      * Gets list of users with this rank
-     * 
+     *
      * @return List<User>
      */
     public List<User> getUsersWith() {
@@ -99,9 +94,8 @@ public class Rank {
 
     /**
      * Sets list of users with this rank
-     * 
-     * @param usersWith
-     *            users with this rank
+     *
+     * @param usersWith users with this rank
      */
     public void setUsersWith(List<User> usersWith) {
         this.usersWith = usersWith;
@@ -109,9 +103,8 @@ public class Rank {
 
     /**
      * Adds user to this rank
-     * 
-     * @param user
-     *            which will be added
+     *
+     * @param user which will be added
      */
     public void addUser(User user) {
         if (!usersWith.contains(user)) {
@@ -123,9 +116,8 @@ public class Rank {
 
     /**
      * Removes user from this rank
-     * 
-     * @param user
-     *            which will be removed
+     *
+     * @param user which will be removed
      */
     public void removeUser(User user) {
         if (usersWith.contains(user)) {
@@ -137,7 +129,7 @@ public class Rank {
 
     /**
      * Gets rank's prefix
-     * 
+     *
      * @return String
      */
     public String getPrefix() {
@@ -146,9 +138,8 @@ public class Rank {
 
     /**
      * Sets rank's prefix
-     * 
-     * @param prefix
-     *            prefix
+     *
+     * @param prefix prefix
      */
     public void setPrefix(String prefix) {
         this.prefix = prefix;

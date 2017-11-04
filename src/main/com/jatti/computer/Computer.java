@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Computer machine
- * 
+ *
  * @author Jatti
  * @version 1.0
  */
@@ -21,9 +21,8 @@ public class Computer extends Machine {
 
     /**
      * Creates new Computer
-     * 
-     * @param owner
-     *            computer's owner
+     *
+     * @param owner computer's owner
      */
     public Computer(User owner) {
         super(owner, "Komputer");
@@ -32,9 +31,8 @@ public class Computer extends Machine {
 
     /**
      * Gets computer from location
-     * 
-     * @param where
-     *            computer's location
+     *
+     * @param where computer's location
      * @return Computer
      */
     public static Computer getFromLocation(Location where) {
@@ -49,9 +47,8 @@ public class Computer extends Machine {
 
     /**
      * Gets user's computer
-     * 
-     * @param owner
-     *            computer's owner
+     *
+     * @param owner computer's owner
      * @return Computer
      */
     public static Computer get(User owner) {
@@ -66,7 +63,7 @@ public class Computer extends Machine {
 
     /**
      * Gets computer's location
-     * 
+     *
      * @return Location
      */
     public Location getWhere() {
@@ -75,9 +72,8 @@ public class Computer extends Machine {
 
     /**
      * Sets computer's location
-     * 
-     * @param where
-     *            computer's location
+     *
+     * @param where computer's location
      */
     public void setWhere(Location where) {
         this.where = where;
@@ -85,7 +81,7 @@ public class Computer extends Machine {
 
     /**
      * Gets all cameras connected with computer
-     * 
+     *
      * @return List<Camera>
      */
     public List<Camera> getCameras() {
@@ -98,9 +94,8 @@ public class Computer extends Machine {
 
     /**
      * Adds camera to list with cameras
-     * 
-     * @param camera
-     *            camera to add
+     *
+     * @param camera camera to add
      */
     public void addCamera(Camera camera) {
         if (!cameras.contains(camera)) {

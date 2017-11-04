@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * Utils for entities
+ *
  * @author Jatti
  * @version 1.1
  */
@@ -21,9 +22,10 @@ public class EntitiesUtils {
         types.add(EntityType.WISP);
         types.add(EntityType.ZOMBIE);
     }
-    
+
     /**
      * Gets list with all entities
+     *
      * @return List<Entity>
      */
     public static List<Entity> getEntities() {
@@ -32,6 +34,7 @@ public class EntitiesUtils {
 
     /**
      * Adds entity to list with them
+     *
      * @param entity entity to add
      */
     public static void addEntity(Entity entity) {
@@ -42,6 +45,7 @@ public class EntitiesUtils {
 
     /**
      * Removes entity from list
+     *
      * @param entity entity to remove
      */
     public static void removeEntity(Entity entity) {
@@ -52,6 +56,7 @@ public class EntitiesUtils {
 
     /**
      * Gets random type for entity
+     *
      * @return EntityType
      */
     public static EntityType getRandType() {
