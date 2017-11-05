@@ -35,6 +35,7 @@ class Battery(owner: User) : Machine(owner, BatteryUtils.getBatteriesForUser(own
          * @param owner owner of that battery
          * @param whereIs location of that battery
          */
+        @JvmStatic
         fun get(owner: User, whereIs: Location): Battery {
 
             BatteryUtils.getBatteriesForUser(owner)

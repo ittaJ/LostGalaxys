@@ -84,7 +84,7 @@ public class Gui {
      */
     @Deprecated
     public static void openEnergyGui(User user, Location location) {
-        Battery b = Battery.Companion.get(user, location);
+        Battery b = Battery.get(user, location);
         Bukkit.createInventory(null, 0, ChatColor.DARK_GREEN + "Energia w tej baterii to: " + ChatColor.GOLD + b.getEnergy());
     }
 

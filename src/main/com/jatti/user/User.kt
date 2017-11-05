@@ -22,7 +22,7 @@ import java.util.*
 
 
 //TODO Rewrite
-class User(var name: String) {
+ class User(var name: String) {
 
     var gold: Int = 0
     var hasComputer: Boolean = false

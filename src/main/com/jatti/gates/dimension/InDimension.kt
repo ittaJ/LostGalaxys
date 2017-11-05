@@ -40,9 +40,9 @@ class InDimensionChecker {
 
                     if (ann.annotationClass == InDimension::class) {
 
-                        val indim = ann as InDimension
+                         ann as InDimension
 
-                        return indim.dimension.name
+                        return ann.dimension.name
 
                     }
 

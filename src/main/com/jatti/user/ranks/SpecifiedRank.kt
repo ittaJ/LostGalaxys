@@ -1,10 +1,11 @@
 package com.jatti.user.ranks
 
+import com.jatti.achievements.missions.Mission
+import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 
 /**
  * Annotation for Missions which makes them only for users with specified rank
- * @see com.jatti.achievements.missions
  * @see com.jatti.user.ranks
  * @author Jatti
  * @version 1.0
@@ -39,9 +40,9 @@ class SpecifiedRankCheck {
 
                     if (ann.annotationClass == SpecifiedRank::class) {
 
-                        val specifiedRank = ann as SpecifiedRank
+                        ann as SpecifiedRank
 
-                        return specifiedRank.rankName
+                        return ann.rankName
 
                     }
 
