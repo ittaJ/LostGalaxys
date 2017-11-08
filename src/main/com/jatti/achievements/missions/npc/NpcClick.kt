@@ -1,8 +1,8 @@
 package com.jatti.achievements.missions.npc
 
-import com.jatti.achievements.missions.IsDailyChecker
 import com.jatti.achievements.missions.MissionsList
-import com.jatti.achievements.missions.npc.NpcClickCheckerType.*
+import com.jatti.achievements.missions.npc.NpcClickCheckerType.DIMENSION
+import com.jatti.achievements.missions.npc.NpcClickCheckerType.RANK
 import com.jatti.gates.dimension.InDimensionChecker
 import com.jatti.user.User
 import com.jatti.user.ranks.SpecifiedRankCheck
@@ -49,77 +49,75 @@ class NpcClick : Listener {
  * @author Jatti
  * @version 1.0
  */
-class NpcClickChecker {
+object NpcClickChecker {
     //TODO Rewrite
-    companion object {
-        @JvmStatic
-        fun check(user: User, npc: Npc, type: NpcClickCheckerType) {
 
-            for (mission in MissionsList.getAllNpcMissions()!!) {
+    @JvmStatic
+    fun check(user: User, npc: Npc, type: NpcClickCheckerType) {
 
-                if (npc.id == mission.id) {
+        for (mission in MissionsList.getAllNpcMissions()!!) {
 
-                    if(type == NpcClickCheckerType.DAILY) {
+            if (npc.id == mission.id) {
 
-                        //TODO Make gettime check if is new day and if it is and if user has mission then remove it from missions list
-                        //if user doesn't have mission and wants to get it then save igt (gettime)
+                if (type == NpcClickCheckerType.DAILY) {
 
-                    }
+                    //TODO Make gettime check if is new day and if it is and if user has mission then remove it from missions list
+                    //if user doesn't have mission and wants to get it then save igt (gettime)
 
-                    if (user.missions!!.contains(mission.id)) {
+                }
+
+                if (user.missions!!.contains(mission.id)) {
 
 
-                        for (f in mission::class.functions) {
+                    for (f in mission::class.functions) {
 
-                            if (f.name == "onGet") {
+                        if (f.name == "onGet") {
+
+                            when (type) {
+
+                                NpcClickCheckerType.RANK ->
+
+                                    if (SpecifiedRankCheck.check(f) == user.rank!!.name || SpecifiedRankCheck.check(f) == null) {
+
+                                        mission.onGet(user)
+
+                                    } else {
+
+                                        user.sendMessage("${ChatColor.DARK_RED} Z ta ranga nie mozesz zdobyc tej misji!")
+
+                                    }
+
+                                NpcClickCheckerType.DIMENSION ->
+                                    println("You can't make mission gettable only in specified dimension!")
+                            }
+
+                            if (f.name == "onComplete") {
 
                                 when (type) {
+
+                                    NpcClickCheckerType.DIMENSION ->
+
+                                        if (InDimensionChecker.check(f) == user.dimension!!.name || InDimensionChecker.check(f) == null) {
+
+                                            mission.onComplete(user)
+
+                                        } else {
+
+                                            user.sendMessage("${ChatColor.DARK_RED} W tym swiecie nie mozesz zakonczyc tej misji!")
+
+                                        }
 
                                     NpcClickCheckerType.RANK ->
 
                                         if (SpecifiedRankCheck.check(f) == user.rank!!.name || SpecifiedRankCheck.check(f) == null) {
 
-                                            mission.onGet(user)
+                                            mission.onComplete(user)
 
                                         } else {
 
-                                            user.sendMessage("${ChatColor.DARK_RED} Z ta ranga nie mozesz zdobyc tej misji!")
+                                            user.sendMessage("${ChatColor.DARK_RED} Z ta ranga nie mozesz zakonczyc misji!")
 
                                         }
-
-                                    NpcClickCheckerType.DIMENSION ->
-                                        println("You can't make mission gettable only in specified dimension!")
-                                }
-
-                                if (f.name == "onComplete") {
-
-                                    when (type) {
-
-                                        NpcClickCheckerType.DIMENSION ->
-
-                                            if (InDimensionChecker.check(f) == user.dimension!!.name || InDimensionChecker.check(f) == null) {
-
-                                                mission.onComplete(user)
-
-                                            } else {
-
-                                                user.sendMessage("${ChatColor.DARK_RED} W tym swiecie nie mozesz zakonczyc tej misji!")
-
-                                            }
-
-                                        NpcClickCheckerType.RANK ->
-
-                                            if (SpecifiedRankCheck.check(f) == user.rank!!.name || SpecifiedRankCheck.check(f) == null) {
-
-                                                mission.onComplete(user)
-
-                                            } else {
-
-                                                user.sendMessage("${ChatColor.DARK_RED} Z ta ranga nie mozesz zakonczyc misji!")
-
-                                            }
-                                    }
-
                                 }
 
                             }
@@ -131,10 +129,11 @@ class NpcClickChecker {
                 }
 
             }
+
         }
     }
-
 }
+
 
 /**
  * Types of checking for NpcClickChecker

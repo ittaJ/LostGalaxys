@@ -20,38 +20,34 @@ annotation class InDimension(val dimension: DimensionType)
  * @author Jatti
  * @version 1.0
  */
-class InDimensionChecker {
+object InDimensionChecker {
 
-    companion object {
+    /**
+     * Method that checks if function has @InDimension annotation
+     *
+     * @param function function to check
+     * @return String?
+     */
 
-        /**
-         * Method that checks if function has @InDimension annotation
-         *
-         * @param function function to check
-         * @return String?
-         */
+    @JvmStatic
+    fun check(function: KFunction<*>): String? {
 
-        @JvmStatic
-        fun check(function: KFunction<*>): String? {
+        if (function.annotations.isNotEmpty()) {
 
-            if (function.annotations.isNotEmpty()) {
+            for (ann in function.annotations) {
 
-                for (ann in function.annotations) {
+                if (ann.annotationClass == InDimension::class) {
 
-                    if (ann.annotationClass == InDimension::class) {
+                    ann as InDimension
 
-                         ann as InDimension
-
-                        return ann.dimension.name
-
-                    }
+                    return ann.dimension.name
 
                 }
 
             }
-            return null
-        }
 
+        }
+        return null
     }
 
 }

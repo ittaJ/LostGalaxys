@@ -1,7 +1,5 @@
 package com.jatti.user.ranks
 
-import com.jatti.achievements.missions.Mission
-import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 
 /**
@@ -22,37 +20,34 @@ annotation class SpecifiedRank(val rankName: String)
  * @version 1.0
  *
  */
-class SpecifiedRankCheck {
+object SpecifiedRankCheck {
 
-    companion object {
-        /**
-         * Method that checks if function has @SpecifiedRank annotation
-         *
-         * @param function function to check
-         * @return String?
-         */
-        @JvmStatic
-        fun check(function: KFunction<*>): String? {
+    /**
+     * Method that checks if function has @SpecifiedRank annotation
+     *
+     * @param function function to check
+     * @return String?
+     */
+    @JvmStatic
+    fun check(function: KFunction<*>): String? {
 
-            if (function.annotations.isNotEmpty()) {
+        if (function.annotations.isNotEmpty()) {
 
-                for (ann in function.annotations) {
+            for (ann in function.annotations) {
 
-                    if (ann.annotationClass == SpecifiedRank::class) {
+                if (ann.annotationClass == SpecifiedRank::class) {
 
-                        ann as SpecifiedRank
+                    ann as SpecifiedRank
 
-                        return ann.rankName
-
-                    }
+                    return ann.rankName
 
                 }
 
             }
 
-            return null
-
         }
-    }
 
+        return null
+
+    }
 }
