@@ -5,11 +5,11 @@ import com.jatti.achievements.prize.Prize
 /**
  *  Represents Achievements
  *  @author Jatti
- *  @version 1.0
+ *  @version 1.1
  *
  *  @param id Achievement's ID
  */
-open class Achievement(var id: Int) {
+class Achievement(var id: Int) {
 
     var name: String = ""
     var desc: List<String> = ArrayList()
@@ -25,6 +25,14 @@ open class Achievement(var id: Int) {
             return AchievementBuilder(id)
         }
 
+    }
+
+    /**
+     * What will happen after getting Achievement
+     * @param after what will happen after
+     */
+    fun afterGetting(after: () -> Unit){
+        after()
     }
 
 }

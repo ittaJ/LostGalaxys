@@ -17,7 +17,7 @@ annotation class SpecifiedRank(val rankName: String)
 /**
  * Class for checking if method has @SpecifiedRank annotation
  * @author Jatti
- * @version 1.0
+ * @version 1.1
  *
  */
 object SpecifiedRankCheck {
@@ -33,17 +33,10 @@ object SpecifiedRankCheck {
 
         if (function.annotations.isNotEmpty()) {
 
-            for (ann in function.annotations) {
+            tailrec fun check(int: Int): Int
+                = if(function.annotations[int].annotationClass == SpecifiedRank::class) int else check(int+1)
 
-                if (ann.annotationClass == SpecifiedRank::class) {
-
-                    ann as SpecifiedRank
-
-                    return ann.rankName
-
-                }
-
-            }
+            return(function.annotations[check(0)] as SpecifiedRank).rankName
 
         }
 

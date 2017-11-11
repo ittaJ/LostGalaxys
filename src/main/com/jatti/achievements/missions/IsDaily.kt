@@ -26,23 +26,16 @@ class IsDailyChecker{
          * Function for checking if mission is daily
          * @param kc class to check
          */
+        //
         @JvmStatic
         fun check(kc: KClass<*>): Boolean?{
 
             if(kc.annotations.isNotEmpty()){
 
-                for(ann in kc.annotations){
+                tailrec fun check(int: Int): Int
+                = if(kc.annotations[int].annotationClass == IsDaily::class) int else check(int+1)
 
-                    if(ann == IsDaily::class){
-
-                        ann as IsDaily
-
-                        return ann.isDaily
-
-                    }
-
-                }
-
+                return (kc.annotations[check(0)] as IsDaily).isDaily
             }
 
             return null

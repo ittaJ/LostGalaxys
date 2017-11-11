@@ -1,20 +1,20 @@
 package com.jatti.time
 
 /**
- * Class for weeks
+ * Class for Weeks
  * @author Jatti
- * @version 1.0
+ * @version 1.1
  */
 class Week{
 
     var month:Month? = null
     var currentDay:Day = Day.IMIX
 
+    /**
+     * Creates new WeekBuilder
+     * @return WeeekBuilder
+     */
     companion object {
-
-        /**
-         * Creates new WeekBuilder
-         */
         @JvmStatic
         fun builder():WeekBuilder{
             return WeekBuilder()
@@ -26,22 +26,17 @@ class Week{
 /**
  *  Builder for weeks
  *  @author Jatti
- *  @version 1.0
+ *  @version 1.1
  */
 class WeekBuilder{
 
     private var week = Week()
-
 
     /**
      * Sets month for which is this week
      * @param month
      */
     fun forMonth(month: Month): WeekBuilder{
-        if(month.weeks.size == month.weeksAmount){
-            error("this month has enough weeks, you can't add more")
-        }
-        month.weeks.add(week)
         week.month = month
         return this
     }
@@ -51,15 +46,13 @@ class WeekBuilder{
      * @param day current day
      */
     fun currentDay(day: Day): WeekBuilder{
-
         if(week.currentDay.name == day.name){
-            error("this day is already current day!")
+            error("This day is already current day!")
         }
 
         if(week.currentDay.ordinal >= day.ordinal){
-            error("this day can't be current day!")
+            error("This day can't be current day!")
         }
-
         week.currentDay = day
         return this
     }
@@ -78,6 +71,54 @@ class WeekBuilder{
      * @return Week
      */
     fun build(): Week{
+        week.month!!.nextWeek()
+        return week
+    }
+
+    /**
+     * Creates new week without changing it in month
+     * @return Week
+     */
+    fun freeBuild(): Week{
         return week
     }
 }
+
+/**fun main(args: Array<String>){
+    println(Month.MIEL.weeks.size)
+    println("-------")
+    val m = Week.builder().forMonth(Month.MIEL).build()
+    println(Month.MIEL.weeks.size)
+    println(m.currentDay.name)
+    println(m.month!!.name)
+    println("------")
+    m.currentDay = m.currentDay.nextDay()
+    println(m.currentDay)
+    println("--------")
+    m.currentDay = Day.ZEHTA
+    println(m.currentDay)
+    m.currentDay = m.currentDay.nextDay()
+    println(m.currentDay)
+    println("--------")
+    Year.nextYear()
+    val y = Year
+    println(y.which)
+    println(y.days.size)
+    println(y.days.values)
+    println(y.days.keys)
+    println(y.weeks.size)
+    println(y.weeks)
+    println(y.getCurrentDay())
+    println("-------")
+    y.getCurrentDay().nextDay()
+    println(y.days.size)
+    println(y.days.values)
+    println(y.days.keys)
+    println(y.weeks.size)
+    println(y.weeks)
+    println(y.getCurrentDay())
+    println("--------")
+    Week.builder().forMonth(Month.MIEL).build()
+    println(y.getCurrentMonth())
+
+}**/

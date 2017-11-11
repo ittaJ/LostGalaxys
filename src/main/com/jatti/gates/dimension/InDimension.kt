@@ -18,7 +18,7 @@ annotation class InDimension(val dimension: DimensionType)
 /**
  * Class for checking if method has @InDimension annotation
  * @author Jatti
- * @version 1.0
+ * @version 1.1
  */
 object InDimensionChecker {
 
@@ -34,17 +34,10 @@ object InDimensionChecker {
 
         if (function.annotations.isNotEmpty()) {
 
-            for (ann in function.annotations) {
+            tailrec fun check(int: Int): Int
+            = if(function.annotations[int].annotationClass == InDimension::class) int else check(int+1)
 
-                if (ann.annotationClass == InDimension::class) {
-
-                    ann as InDimension
-
-                    return ann.dimension.name
-
-                }
-
-            }
+            return (function.annotations[check(0)] as InDimension).dimension.name
 
         }
         return null
