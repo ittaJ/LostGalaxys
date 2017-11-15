@@ -11,7 +11,7 @@ import org.bukkit.event.HandlerList
  * @param user user who is watching tutorial
  */
 
-class TutorialEvent(var user: User) : Event(false) {
+class TutorialEvent(val user: User): Event() {
 
     private val handlery: HandlerList = HandlerList()
 

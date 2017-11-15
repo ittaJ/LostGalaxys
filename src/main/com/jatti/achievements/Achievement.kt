@@ -26,15 +26,6 @@ class Achievement(var id: Int) {
         }
 
     }
-
-    /**
-     * What will happen after getting Achievement
-     * @param after what will happen after
-     */
-    fun afterGetting(after: () -> Unit){
-        after()
-    }
-
 }
 
 /**
